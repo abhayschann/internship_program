@@ -1,0 +1,93 @@
+/* Custom styles for Spring Boot REST API Generator */
+
+/* Entity editor styles */
+.entity-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* Code editor styles */
+.CodeMirror {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    height: auto;
+    min-height: 300px;
+}
+
+/* File list styles */
+.file-list {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+/* Field validation rule checkboxes */
+.validation-rule {
+    margin-right: 10px;
+}
+
+/* Custom card styling */
+.card {
+    border-color: rgba(255, 255, 255, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+.card-header {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Make form labels a bit lighter */
+.form-label {
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Focus styles for form controls */
+.form-control:focus, .form-select:focus {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
+}
+
+/* Custom styling for buttons */
+.btn-primary {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--bs-primary-darker, #0056b3);
+    border-color: var(--bs-primary-darker, #0056b3);
+}
+
+/* Hover effect for entity list items */
+.entity-list .list-group-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+
+.entity-list .list-group-item.active {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+}
+
+/* Custom toast styling */
+.toast {
+    z-index: 9999;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card-header {
+        padding: 0.75rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .field-row {
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-label {
+        margin-bottom: 0.25rem;
+    }
+}

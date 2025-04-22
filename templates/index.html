@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="row align-items-center my-5">
+    <div class="col-lg-6">
+        <h1 class="display-4 fw-bold">Spring Boot REST API Generator</h1>
+        <p class="lead">Create complete RESTful APIs for your Spring Boot microservices without writing boilerplate code.</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-4">
+            <a href="{{ url_for('entity_editor') }}" class="btn btn-primary btn-lg px-4 me-md-2">
+                <i class="fa-solid fa-plus me-2"></i>Create New Project
+            </a>
+            <a href="{{ url_for('import_code') }}" class="btn btn-outline-secondary btn-lg px-4">
+                <i class="fa-solid fa-file-import me-2"></i>Import Existing Code
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-6 text-center">
+        <i class="fa-solid fa-gears text-primary" style="font-size: 10rem;"></i>
+    </div>
+</div>
+
+<hr class="my-5">
+
+<div class="row g-4 py-4">
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i class="fa-solid fa-database mb-3" style="font-size: 3rem; color: var(--bs-primary);"></i>
+                <h3 class="card-title">Define Entities</h3>
+                <p class="card-text">Create your data models with a simple interface. Add fields, relationships, and validation rules.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i class="fa-solid fa-code mb-3" style="font-size: 3rem; color: var(--bs-primary);"></i>
+                <h3 class="card-title">Generate Code</h3>
+                <p class="card-text">Automatically generate controllers, services, and repositories following Spring Boot best practices.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i class="fa-solid fa-download mb-3" style="font-size: 3rem; color: var(--bs-primary);"></i>
+                <h3 class="card-title">Export & Use</h3>
+                <p class="card-text">Download the generated code and integrate it directly into your Spring Boot project.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr class="my-5">
+
+<div class="row py-4">
+    <div class="col-12 text-center mb-4">
+        <h2>Features</h2>
+    </div>
+    <div class="col-md-6">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><i class="fa-solid fa-check text-success me-2"></i> Complete CRUD operations</li>
+            <li class="list-group-item"><i class="fa-solid fa-check text-success me-2"></i> Entity relationship support</li>
+            <li class="list-group-item"><i class="fa-solid fa-check text-success me-2"></i> Input validation rules</li>
+            <li class="list-group-item"><i class="fa-solid fa-check text-success me-2"></i> Spring Data JPA integration</li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><i class="fa-solid fa-check text-success me-2"></i> Swagger/OpenAPI documentation</li>
+            <li class="list-group-item"><i class="fa-solid fa-check text-success me-2"></i> Error handling patterns</li>
+            <li class="list-group-item"><i class="fa-solid fa-check text-success me-2"></i> Import existing code</li>
+            <li class="list-group-item"><i class="fa-solid fa-check text-success me-2"></i> Spring Boot best practices</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

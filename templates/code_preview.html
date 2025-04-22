@@ -1,0 +1,91 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col">
+        <h1><i class="fa-solid fa-code me-2"></i>Code Preview</h1>
+        <p class="lead">Review and export your generated Spring Boot code</p>
+    </div>
+    <div class="col-auto d-flex align-items-center">
+        <button class="btn btn-primary me-2" id="refreshCodeBtn">
+            <i class="fa-solid fa-sync-alt me-1"></i>Refresh
+        </button>
+        <button class="btn btn-success" id="downloadCodeBtn">
+            <i class="fa-solid fa-download me-1"></i>Download All
+        </button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">Files</h5>
+            </div>
+            <div class="card-body p-0">
+                <div class="list-group list-group-flush file-list" id="fileList">
+                    <!-- Files will be listed here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-9">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0" id="currentFileName">Select a file to view</h5>
+                <div>
+                    <button class="btn btn-sm btn-outline-secondary" id="copyCodeBtn">
+                        <i class="fa-regular fa-copy me-1"></i>Copy
+                    </button>
+                    <button class="btn btn-sm btn-outline-primary" id="downloadFileBtn">
+                        <i class="fa-solid fa-download me-1"></i>Download
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="codeEditor"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- File structure explanation -->
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Spring Boot Project Structure</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6><i class="fa-solid fa-layer-group me-2"></i>Project Layers</h6>
+                        <ul class="list-group list-group-flush mb-3">
+                            <li class="list-group-item"><strong>Controller:</strong> Handles HTTP requests and responses</li>
+                            <li class="list-group-item"><strong>Service:</strong> Contains business logic</li>
+                            <li class="list-group-item"><strong>Repository:</strong> Data access layer for database operations</li>
+                            <li class="list-group-item"><strong>Model/Entity:</strong> Domain objects representing data structure</li>
+                            <li class="list-group-item"><strong>DTO:</strong> Data Transfer Objects for API requests/responses</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h6><i class="fa-solid fa-code-branch me-2"></i>How to Use</h6>
+                        <ol class="list-group list-group-flush">
+                            <li class="list-group-item">1. Copy the generated code to your Spring Boot project</li>
+                            <li class="list-group-item">2. Make sure dependencies are in your pom.xml or build.gradle</li>
+                            <li class="list-group-item">3. Configure your database connection in application.properties</li>
+                            <li class="list-group-item">4. Run your Spring Boot application</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/code-generator.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,297 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col">
+        <h1><i class="fa-solid fa-file-import me-2"></i>Import Code</h1>
+        <p class="lead">Import and modify existing Spring Boot code</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">Choose Import Method</h5>
+            </div>
+            <div class="card-body">
+                <ul class="nav nav-tabs mb-3" id="importTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="paste-tab" data-bs-toggle="tab" data-bs-target="#paste" type="button" role="tab" aria-controls="paste" aria-selected="true">
+                            <i class="fa-regular fa-paste me-1"></i>Paste Code
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="upload-tab" data-bs-toggle="tab" data-bs-target="#upload" type="button" role="tab" aria-controls="upload" aria-selected="false">
+                            <i class="fa-solid fa-upload me-1"></i>Upload Files
+                        </button>
+                    </li>
+                </ul>
+                
+                <div class="tab-content" id="importTabsContent">
+                    <div class="tab-pane fade show active" id="paste" role="tabpanel" aria-labelledby="paste-tab">
+                        <p>Paste your Spring Boot entity class code below:</p>
+                        <div class="mb-3">
+                            <label for="codeInput" class="form-label">Java Entity Code</label>
+                            <div id="codeInput" style="height: 300px;"></div>
+                            <div class="form-text">
+                                Paste Java entity classes with JPA annotations (e.g., @Entity, @Column, etc.)
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <button class="btn btn-primary" id="parseCodeBtn">
+                                <i class="fa-solid fa-wand-magic-sparkles me-2"></i>Parse Code
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane fade" id="upload" role="tabpanel" aria-labelledby="upload-tab">
+                        <p>Upload your Java entity files:</p>
+                        <div class="mb-3">
+                            <label for="fileUpload" class="form-label">Select Java Files</label>
+                            <input class="form-control" type="file" id="fileUpload" multiple accept=".java">
+                            <div class="form-text">
+                                Select one or more .java files containing your entity classes
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <button class="btn btn-primary" id="uploadFilesBtn">
+                                <i class="fa-solid fa-upload me-2"></i>Upload and Parse
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card mb-4" id="importResultsCard" style="display: none;">
+            <div class="card-header">
+                <h5 class="mb-0">Import Results</h5>
+            </div>
+            <div class="card-body">
+                <div id="importResults">
+                    <!-- Results will be displayed here -->
+                </div>
+                <div class="d-flex justify-content-end mt-3">
+                    <button class="btn btn-secondary me-2" id="cancelImportBtn">Cancel</button>
+                    <button class="btn btn-success" id="confirmImportBtn">
+                        <i class="fa-solid fa-check me-2"></i>Confirm and Edit
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Instructions</h5>
+            </div>
+            <div class="card-body">
+                <h6>Supported Features:</h6>
+                <ul>
+                    <li>Import JPA entity classes with standard annotations</li>
+                    <li>Extract field names, types, and relationships</li>
+                    <li>Recognize common validation annotations</li>
+                </ul>
+                
+                <h6>Example Entity:</h6>
+                <pre class="bg-dark text-light p-3 rounded"><code>@Entity
+@Table(name = "products")
+public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    @Column(name = "name", nullable = false)
+    private String name;
+    
+    @Column(name = "price")
+    private BigDecimal price;
+    
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+    
+    // getters and setters
+}</code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize CodeMirror for Java code input
+        const codeInput = CodeMirror(document.getElementById('codeInput'), {
+            mode: 'text/x-java',
+            theme: 'darcula',
+            lineNumbers: true,
+            indentWithTabs: true,
+            tabSize: 4,
+            lineWrapping: true,
+            autoCloseBrackets: true,
+            matchBrackets: true
+        });
+
+        // Sample code for demonstration
+        const sampleCode = `@Entity
+@Table(name = "products")
+public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    @Column(name = "name", nullable = false)
+    private String name;
+    
+    @Column(name = "price")
+    private BigDecimal price;
+    
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+    
+    // getters and setters
+}`;
+        codeInput.setValue(sampleCode);
+
+        // Parse code button
+        document.getElementById('parseCodeBtn').addEventListener('click', function() {
+            const code = codeInput.getValue();
+            if (!code.trim()) {
+                alert('Please enter Java code to parse.');
+                return;
+            }
+            
+            // Send code to the server for parsing
+            fetch('/api/parse-code', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ code: code })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showImportResults(data.entities);
+                } else {
+                    alert('Error parsing code: ' + data.error);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while parsing the code.');
+            });
+        });
+
+        // File upload handling
+        document.getElementById('uploadFilesBtn').addEventListener('click', function() {
+            const fileInput = document.getElementById('fileUpload');
+            if (fileInput.files.length === 0) {
+                alert('Please select at least one file.');
+                return;
+            }
+
+            const files = Array.from(fileInput.files);
+            const promises = files.map(file => {
+                return new Promise((resolve, reject) => {
+                    const reader = new FileReader();
+                    reader.onload = e => resolve({ name: file.name, content: e.target.result });
+                    reader.onerror = e => reject(e);
+                    reader.readAsText(file);
+                });
+            });
+
+            Promise.all(promises)
+                .then(fileContents => {
+                    // Combine all file contents and send to the server
+                    const combinedCode = fileContents.map(f => f.content).join('\n\n');
+                    return fetch('/api/parse-code', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ code: combinedCode })
+                    });
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        showImportResults(data.entities);
+                    } else {
+                        alert('Error parsing code: ' + data.error);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred while processing the files.');
+                });
+        });
+
+        // Display import results
+        function showImportResults(entities) {
+            const resultsContainer = document.getElementById('importResults');
+            resultsContainer.innerHTML = '';
+            
+            if (Object.keys(entities).length === 0) {
+                resultsContainer.innerHTML = '<div class="alert alert-warning">No entities found in the provided code.</div>';
+            } else {
+                const entitiesList = document.createElement('div');
+                entitiesList.className = 'list-group mb-3';
+                
+                for (const entityName in entities) {
+                    const entity = entities[entityName];
+                    const fields = entity.fields || [];
+                    
+                    const entityItem = document.createElement('div');
+                    entityItem.className = 'list-group-item';
+                    
+                    let fieldsHtml = '';
+                    fields.forEach(field => {
+                        fieldsHtml += `<li><span class="text-primary">${field.type}</span> ${field.name}</li>`;
+                    });
+                    
+                    entityItem.innerHTML = `
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h6 class="mb-1">${entityName}</h6>
+                            <span class="badge bg-primary">${fields.length} fields</span>
+                        </div>
+                        <ul class="mb-0 small">
+                            ${fieldsHtml}
+                        </ul>
+                    `;
+                    
+                    entitiesList.appendChild(entityItem);
+                }
+                
+                resultsContainer.appendChild(entitiesList);
+                
+                // Add summary
+                const summary = document.createElement('div');
+                summary.className = 'alert alert-success';
+                summary.innerHTML = `
+                    <strong>Success!</strong> Found ${Object.keys(entities).length} entities. 
+                    Click "Confirm and Edit" to proceed to the entity editor.
+                `;
+                resultsContainer.appendChild(summary);
+            }
+            
+            // Show the results card
+            document.getElementById('importResultsCard').style.display = 'block';
+        }
+
+        // Confirm import button
+        document.getElementById('confirmImportBtn').addEventListener('click', function() {
+            window.location.href = '/entity-editor';
+        });
+
+        // Cancel import button
+        document.getElementById('cancelImportBtn').addEventListener('click', function() {
+            document.getElementById('importResultsCard').style.display = 'none';
+        });
+    });
+</script>
+{% endblock %}
