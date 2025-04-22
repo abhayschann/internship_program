@@ -353,23 +353,24 @@ document.addEventListener('DOMContentLoaded', function() {
         updateEntityList();
         
         // Show success message
-        const toast = new bootstrap.Toast(Object.assign(document.createElement('div'), {
-            className: 'toast align-items-center text-bg-success border-0 position-fixed bottom-0 end-0 m-3',
-            innerHTML: `
-                <div class="d-flex">
-                    <div class="toast-body">
-                        Entity saved successfully!
-                    </div>
-                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+        const toastElement = document.createElement('div');
+        toastElement.className = 'toast align-items-center text-bg-success border-0 position-fixed bottom-0 end-0 m-3';
+        toastElement.innerHTML = `
+            <div class="d-flex">
+                <div class="toast-body">
+                    Entity saved successfully!
                 </div>
-            `
-        }));
-        document.body.appendChild(toast.element);
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        `;
+        document.body.appendChild(toastElement);
+        
+        const toast = new bootstrap.Toast(toastElement);
         toast.show();
         
         // Remove toast element after it's hidden
-        toast.element.addEventListener('hidden.bs.toast', () => {
-            document.body.removeChild(toast.element);
+        toastElement.addEventListener('hidden.bs.toast', () => {
+            document.body.removeChild(toastElement);
         });
     }
     
