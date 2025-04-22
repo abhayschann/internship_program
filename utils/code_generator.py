@@ -19,6 +19,7 @@ def generate_spring_boot_code(entity_data):
         dict: Dictionary of generated code files
     """
     try:
+        logging.debug(f"generate_spring_boot_code called with entity_data: {entity_data}")
         generated_files = {}
         
         # Generate a package name (default)
@@ -346,8 +347,8 @@ springdoc.swagger-ui.operationsSorter=method
 def generate_pom_xml(entity_data):
     """Generate Maven pom.xml file"""
     # Determine if Swagger is needed
-    need_swagger = any(entity.get('config', {}).get('generateSwagger', True) 
-                      for entity in entity_data.values())
+    need_swagger = any(entity_info.get('config', {}).get('generateSwagger', True) 
+                      for entity_info in entity_data.values())
     
     swagger_dependency = ""
     if need_swagger:
