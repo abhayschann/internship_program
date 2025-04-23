@@ -473,19 +473,15 @@ def generate_readme(entity_data):
     """Generate README.md file with instructions"""
     entity_names = list(entity_data.keys())
     entity_list = "\n".join([f"- {name}" for name in entity_names])
-    entity_names_joined = ', '.join(entity_names)
     
-    # Create the readme content with dynamic and static parts separately
-    header = f"""# Spring Boot REST API
+    readme = f"""# Spring Boot REST API
 
-A RESTful API built with Spring Boot for managing {entity_names_joined}.
+A RESTful API built with Spring Boot for managing {', '.join(entity_names)}.
 
 ## Entities
 
-{entity_list}"""
-    
-    # The middle part contains the problematic curly braces, use raw string
-    middle = r"""
+{entity_list}
+
 ## Getting Started
 
 ### Prerequisites
@@ -515,10 +511,7 @@ For each entity, the following endpoints are available:
 - `DELETE /{entity}/{id}` - Delete an entity
 
 Replace `{entity}` with the plural form of the entity name in lowercase, e.g., `products`, `customers`, etc.
-"""
-    
-    # The footer has no problematic curly braces
-    footer = """
+
 ## Database
 
 The application uses an H2 in-memory database by default. You can access the H2 console at http://localhost:8080/h2-console with the following credentials:
@@ -541,8 +534,5 @@ To use a different database, update the `application.properties` file with the a
 
 This project is licensed under the MIT License.
 """
-    
-    # Combine all parts
-    readme = header + middle + footer
     
     return readme
