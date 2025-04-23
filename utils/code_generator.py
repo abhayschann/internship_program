@@ -504,13 +504,13 @@ The API documentation is available at http://localhost:8080/swagger-ui.html when
 
 For each entity, the following endpoints are available:
 
-- `GET /{entity}/all` - Get all entities
-- `GET /{entity}/{id}` - Get a specific entity by ID
-- `POST /{entity}` - Create a new entity
-- `PUT /{entity}/{id}` - Update an existing entity
-- `DELETE /{entity}/{id}` - Delete an entity
+- `GET /api/{{endpoint}}` - Get all entities
+- `GET /api/{{endpoint}}/{{id}}` - Get a specific entity by ID
+- `POST /api/{{endpoint}}` - Create a new entity
+- `PUT /api/{{endpoint}}/{{id}}` - Update an existing entity
+- `DELETE /api/{{endpoint}}/{{id}}` - Delete an entity
 
-Replace `{entity}` with the plural form of the entity name in lowercase, e.g., `products`, `customers`, etc.
+Replace `{{endpoint}}` with the plural form of the entity name in lowercase, e.g., `products`, `customers`, etc.
 
 ## Database
 
