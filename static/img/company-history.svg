@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <!-- Background -->
+  <rect x="0" y="0" width="800" height="600" fill="#f8f9fa" />
+  
+  <!-- Timeline -->
+  <line x1="400" y1="100" x2="400" y2="500" stroke="#0d6efd" stroke-width="6" stroke-dasharray="10,10" />
+  
+  <!-- 2010 - Foundation -->
+  <circle cx="400" cy="150" r="20" fill="#0d6efd" />
+  <rect x="430" y="120" width="300" height="60" rx="5" fill="#0d6efd" opacity="0.1" />
+  <text x="440" y="150" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#0d6efd">2010 - Foundation</text>
+  <text x="440" y="170" font-family="Arial, sans-serif" font-size="14" fill="#212529">Started with a small team of tech enthusiasts</text>
+  
+  <!-- 2014 - Growth -->
+  <circle cx="400" cy="250" r="20" fill="#0d6efd" />
+  <rect x="70" y="220" width="300" height="60" rx="5" fill="#0d6efd" opacity="0.1" />
+  <text x="80" y="250" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#0d6efd">2014 - Growth</text>
+  <text x="80" y="270" font-family="Arial, sans-serif" font-size="14" fill="#212529">Expanded services and launched internship program</text>
+  
+  <!-- 2017 - Expansion -->
+  <circle cx="400" cy="350" r="20" fill="#0d6efd" />
+  <rect x="430" y="320" width="300" height="60" rx="5" fill="#0d6efd" opacity="0.1" />
+  <text x="440" y="350" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#0d6efd">2017 - Expansion</text>
+  <text x="440" y="370" font-family="Arial, sans-serif" font-size="14" fill="#212529">Opened new offices and diversified service offerings</text>
+  
+  <!-- 2020 - Innovation -->
+  <circle cx="400" cy="450" r="20" fill="#0d6efd" />
+  <rect x="70" y="420" width="300" height="60" rx="5" fill="#0d6efd" opacity="0.1" />
+  <text x="80" y="450" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#0d6efd">2020 - Innovation</text>
+  <text x="80" y="470" font-family="Arial, sans-serif" font-size="14" fill="#212529">Introduced certificate system and remote internships</text>
+  
+  <!-- Present - Title -->
+  <circle cx="400" cy="550" r="25" fill="#0d6efd" />
+  <text x="400" y="555" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">NOW</text>
+  
+  <!-- Decorative Elements -->
+  <circle cx="100" cy="100" r="40" fill="#0d6efd" opacity="0.1" />
+  <circle cx="700" cy="500" r="40" fill="#0d6efd" opacity="0.1" />
+  <circle cx="150" cy="550" r="20" fill="#0d6efd" opacity="0.1" />
+  <circle cx="650" cy="50" r="20" fill="#0d6efd" opacity="0.1" />
+</svg>

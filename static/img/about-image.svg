@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <!-- Background -->
+  <rect x="0" y="0" width="800" height="600" fill="#f8f9fa" />
+  
+  <!-- Office Building Illustration -->
+  <rect x="200" y="150" width="400" height="300" fill="#0d6efd" opacity="0.8" />
+  
+  <!-- Windows -->
+  <rect x="240" y="190" width="60" height="50" fill="white" />
+  <rect x="340" y="190" width="60" height="50" fill="white" />
+  <rect x="440" y="190" width="60" height="50" fill="white" />
+  <rect x="500" y="190" width="60" height="50" fill="white" />
+  
+  <rect x="240" y="260" width="60" height="50" fill="white" />
+  <rect x="340" y="260" width="60" height="50" fill="white" />
+  <rect x="440" y="260" width="60" height="50" fill="white" />
+  <rect x="500" y="260" width="60" height="50" fill="white" />
+  
+  <rect x="240" y="330" width="60" height="50" fill="white" />
+  <rect x="340" y="330" width="60" height="50" fill="white" />
+  <rect x="440" y="330" width="60" height="50" fill="white" />
+  <rect x="500" y="330" width="60" height="50" fill="white" />
+  
+  <!-- Door -->
+  <rect x="370" y="390" width="60" height="60" fill="#212529" />
+  <rect x="380" y="390" width="40" height="60" fill="#495057" />
+  
+  <!-- Roof -->
+  <polygon points="200,150 400,80 600,150" fill="#212529" />
+  
+  <!-- People -->
+  <!-- Person 1 -->
+  <circle cx="270" cy="480" r="20" fill="#0d6efd" />
+  <rect x="260" y="500" width="20" height="40" fill="#0d6efd" />
+  <line x1="260" y1="510" x2="240" y2="530" stroke="#0d6efd" stroke-width="5" />
+  <line x1="280" y1="510" x2="300" y2="530" stroke="#0d6efd" stroke-width="5" />
+  
+  <!-- Person 2 -->
+  <circle cx="350" cy="480" r="20" fill="#0d6efd" />
+  <rect x="340" y="500" width="20" height="40" fill="#0d6efd" />
+  <line x1="340" y1="510" x2="320" y2="530" stroke="#0d6efd" stroke-width="5" />
+  <line x1="360" y1="510" x2="380" y2="530" stroke="#0d6efd" stroke-width="5" />
+  
+  <!-- Person 3 -->
+  <circle cx="430" cy="480" r="20" fill="#0d6efd" />
+  <rect x="420" y="500" width="20" height="40" fill="#0d6efd" />
+  <line x1="420" y1="510" x2="400" y2="530" stroke="#0d6efd" stroke-width="5" />
+  <line x1="440" y1="510" x2="460" y2="530" stroke="#0d6efd" stroke-width="5" />
+  
+  <!-- Person 4 -->
+  <circle cx="510" cy="480" r="20" fill="#0d6efd" />
+  <rect x="500" y="500" width="20" height="40" fill="#0d6efd" />
+  <line x1="500" y1="510" x2="480" y2="530" stroke="#0d6efd" stroke-width="5" />
+  <line x1="520" y1="510" x2="540" y2="530" stroke="#0d6efd" stroke-width="5" />
+  
+  <!-- Trees -->
+  <rect x="150" y="500" width="10" height="40" fill="#6c757d" />
+  <circle cx="155" cy="480" r="20" fill="#198754" />
+  
+  <rect x="620" y="500" width="10" height="40" fill="#6c757d" />
+  <circle cx="625" cy="480" r="20" fill="#198754" />
+  
+  <!-- Sun -->
+  <circle cx="700" cy="100" r="40" fill="#ffc107" />
+  <line x1="700" y1="30" x2="700" y2="50" stroke="#ffc107" stroke-width="5" />
+  <line x1="700" y1="150" x2="700" y2="170" stroke="#ffc107" stroke-width="5" />
+  <line x1="630" y1="100" x2="650" y2="100" stroke="#ffc107" stroke-width="5" />
+  <line x1="750" y1="100" x2="770" y2="100" stroke="#ffc107" stroke-width="5" />
+  <line x1="650" y1="50" x2="665" y2="65" stroke="#ffc107" stroke-width="5" />
+  <line x1="735" y1="135" x2="750" y2="150" stroke="#ffc107" stroke-width="5" />
+  <line x1="650" y1="150" x2="665" y2="135" stroke="#ffc107" stroke-width="5" />
+  <line x1="735" y1="65" x2="750" y2="50" stroke="#ffc107" stroke-width="5" />
+  
+  <!-- Company Name -->
+  <text x="400" y="240" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="white">IT SERVICES</text>
+  <text x="400" y="270" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="white">Est. 2010</text>
+</svg>

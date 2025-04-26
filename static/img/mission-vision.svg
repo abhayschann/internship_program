@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <!-- Background -->
+  <rect x="0" y="0" width="800" height="600" fill="#f8f9fa" />
+  
+  <!-- Mission Section (Left) -->
+  <circle cx="200" cy="300" r="150" fill="#0d6efd" opacity="0.6" />
+  
+  <!-- Vision Section (Right) -->
+  <circle cx="600" cy="300" r="150" fill="#0d6efd" opacity="0.3" />
+  
+  <!-- Overlap of Mission and Vision -->
+  <circle cx="400" cy="300" r="100" fill="#0d6efd" opacity="0.8" />
+  
+  <!-- Mission Elements -->
+  <text x="200" y="250" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="white">MISSION</text>
+  
+  <!-- Target Icon for Mission -->
+  <circle cx="200" cy="300" r="40" fill="white" />
+  <circle cx="200" cy="300" r="30" fill="#0d6efd" opacity="0.4" />
+  <circle cx="200" cy="300" r="20" fill="white" />
+  <circle cx="200" cy="300" r="10" fill="#0d6efd" />
+  
+  <!-- Mission Keywords -->
+  <text x="200" y="370" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">DELIVER</text>
+  <text x="150" y="330" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">INNOVATE</text>
+  <text x="250" y="330" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">SUPPORT</text>
+  
+  <!-- Vision Elements -->
+  <text x="600" y="250" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#0d6efd">VISION</text>
+  
+  <!-- Eye Icon for Vision -->
+  <ellipse cx="600" cy="300" rx="40" ry="20" fill="white" />
+  <circle cx="600" cy="300" r="15" fill="#0d6efd" />
+  <circle cx="600" cy="300" r="7" fill="white" />
+  
+  <!-- Vision Keywords -->
+  <text x="600" y="370" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#0d6efd">EXCELLENCE</text>
+  <text x="550" y="330" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#0d6efd">GROWTH</text>
+  <text x="650" y="330" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#0d6efd">FUTURE</text>
+  
+  <!-- Center Common Values -->
+  <text x="400" y="280" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">VALUES</text>
+  <text x="400" y="310" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">QUALITY</text>
+  <text x="400" y="330" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">INTEGRITY</text>
+  <text x="400" y="350" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">EDUCATION</text>
+  
+  <!-- Decorative Elements -->
+  <circle cx="100" cy="100" r="30" fill="#0d6efd" opacity="0.2" />
+  <circle cx="700" cy="100" r="30" fill="#0d6efd" opacity="0.2" />
+  <circle cx="100" cy="500" r="30" fill="#0d6efd" opacity="0.2" />
+  <circle cx="700" cy="500" r="30" fill="#0d6efd" opacity="0.2" />
+</svg>

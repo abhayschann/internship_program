@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <!-- Background -->
+  <rect x="0" y="0" width="800" height="600" fill="#f8f9fa" />
+  
+  <!-- IT Services Graphics -->
+  <!-- Computer/Server -->
+  <rect x="100" y="200" width="250" height="200" rx="10" fill="#0d6efd" opacity="0.8" />
+  <rect x="125" y="225" width="200" height="120" rx="5" fill="white" />
+  <rect x="150" y="260" width="150" height="15" rx="2" fill="#0d6efd" opacity="0.6" />
+  <rect x="150" y="290" width="120" height="15" rx="2" fill="#0d6efd" opacity="0.6" />
+  <circle cx="175" cy="240" r="8" fill="#0d6efd" />
+  <circle cx="200" cy="240" r="8" fill="#0d6efd" />
+  <circle cx="225" cy="240" r="8" fill="#0d6efd" />
+  
+  <!-- Mobile Device -->
+  <rect x="400" y="220" width="80" height="150" rx="10" fill="#0d6efd" />
+  <rect x="410" y="235" width="60" height="100" rx="2" fill="white" />
+  <circle cx="440" cy="355" r="10" fill="white" />
+  
+  <!-- Cloud/Network -->
+  <circle cx="550" cy="200" r="50" fill="#0d6efd" opacity="0.7" />
+  <circle cx="600" cy="180" r="40" fill="#0d6efd" opacity="0.7" />
+  <circle cx="620" cy="230" r="45" fill="#0d6efd" opacity="0.7" />
+  <circle cx="580" cy="250" r="30" fill="#0d6efd" opacity="0.7" />
+  
+  <!-- Connection Lines -->
+  <line x1="350" y1="300" x2="400" y2="300" stroke="#0d6efd" stroke-width="3" stroke-dasharray="5,5" />
+  <line x1="480" y1="260" x2="550" y2="230" stroke="#0d6efd" stroke-width="3" stroke-dasharray="5,5" />
+  <line x1="300" y1="200" x2="550" y2="200" stroke="#0d6efd" stroke-width="3" stroke-dasharray="5,5" />
+  
+  <!-- Binary Code Background - Subtle -->
+  <text x="50" y="450" font-family="monospace" font-size="10" fill="#0d6efd" opacity="0.2">01001001 01010100 00100000 01010011 01100101 01110010 01110110 01101001 01100011 01100101 01110011</text>
+  <text x="50" y="470" font-family="monospace" font-size="10" fill="#0d6efd" opacity="0.2">01000011 01101100 01101111 01110101 01100100 00100000 01010011 01101111 01101100 01110101 01110100 01101001 01101111 01101110 01110011</text>
+  <text x="50" y="490" font-family="monospace" font-size="10" fill="#0d6efd" opacity="0.2">01000100 01100001 01110100 01100001 00100000 01000001 01101110 01100001 01101100 01111001 01110100 01101001 01100011 01110011</text>
+  <text x="50" y="510" font-family="monospace" font-size="10" fill="#0d6efd" opacity="0.2">01010111 01100101 01100010 00100000 01000100 01100101 01110110 01100101 01101100 01101111 01110000 01101101 01100101 01101110 01110100</text>
+
+  <!-- Certificates Symbol -->
+  <rect x="640" y="300" width="100" height="130" rx="5" fill="#0d6efd" opacity="0.8" />
+  <rect x="650" y="310" width="80" height="95" rx="2" fill="white" />
+  <text x="660" y="340" font-family="Arial, sans-serif" font-size="10" fill="#0d6efd">CERTIFICATE</text>
+  <line x1="660" y1="350" x2="720" y2="350" stroke="#0d6efd" stroke-width="1" />
+  <line x1="660" y1="370" x2="720" y2="370" stroke="#0d6efd" stroke-width="1" />
+  <line x1="660" y1="390" x2="720" y2="390" stroke="#0d6efd" stroke-width="1" />
+  <circle cx="690" cy="420" r="10" fill="#0d6efd" opacity="0.5" />
+  <path d="M680 430 L690 420 L700 430" fill="none" stroke="#0d6efd" stroke-width="2" />
+</svg>

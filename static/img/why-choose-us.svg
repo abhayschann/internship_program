@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <!-- Background -->
+  <rect x="0" y="0" width="800" height="600" fill="#f8f9fa" />
+  
+  <!-- Central puzzle piece representing teamwork -->
+  <rect x="300" y="200" width="200" height="200" rx="20" fill="#0d6efd" opacity="0.8" />
+  
+  <!-- Expertise Icon -->
+  <circle cx="200" cy="150" r="70" fill="#0d6efd" opacity="0.6" />
+  <text x="200" y="160" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">EXPERTISE</text>
+  <line x1="200" y1="180" x2="300" y2="230" stroke="#0d6efd" stroke-width="3" stroke-dasharray="5,5" />
+  
+  <!-- Innovation Icon -->
+  <circle cx="600" cy="150" r="70" fill="#0d6efd" opacity="0.6" />
+  <text x="600" y="160" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">INNOVATION</text>
+  <line x1="600" y1="180" x2="500" y2="230" stroke="#0d6efd" stroke-width="3" stroke-dasharray="5,5" />
+  
+  <!-- Quality Icon -->
+  <circle cx="200" cy="450" r="70" fill="#0d6efd" opacity="0.6" />
+  <text x="200" y="460" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">QUALITY</text>
+  <line x1="200" y1="420" x2="300" y2="370" stroke="#0d6efd" stroke-width="3" stroke-dasharray="5,5" />
+  
+  <!-- Support Icon -->
+  <circle cx="600" cy="450" r="70" fill="#0d6efd" opacity="0.6" />
+  <text x="600" y="460" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">SUPPORT</text>
+  <line x1="600" y1="420" x2="500" y2="370" stroke="#0d6efd" stroke-width="3" stroke-dasharray="5,5" />
+  
+  <!-- Central Text -->
+  <text x="400" y="270" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="white">WHY</text>
+  <text x="400" y="300" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="white">CHOOSE</text>
+  <text x="400" y="330" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="white">US</text>
+  
+  <!-- Decorative Icons -->
+  <!-- Expertise Icons -->
+  <circle cx="160" cy="120" r="10" fill="white" />
+  <circle cx="180" cy="100" r="10" fill="white" />
+  <circle cx="220" cy="100" r="10" fill="white" />
+  <circle cx="240" cy="120" r="10" fill="white" />
+  
+  <!-- Innovation Icons -->
+  <polygon points="570,100 585,130 620,130 595,150 605,180 570,160 535,180 545,150 520,130 555,130" fill="white" />
+  
+  <!-- Quality Icons -->
+  <rect x="175" y="440" width="10" height="30" fill="white" />
+  <rect x="195" y="430" width="10" height="40" fill="white" />
+  <rect x="215" y="420" width="10" height="50" fill="white" />
+  
+  <!-- Support Icons -->
+  <circle cx="580" cy="430" r="15" fill="white" />
+  <path d="M580 430 L580 460" stroke="white" stroke-width="6" />
+  <path d="M560 440 L600 440" stroke="white" stroke-width="6" />
+</svg>

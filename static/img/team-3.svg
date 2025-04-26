@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300">
+  <!-- Background -->
+  <circle cx="150" cy="150" r="150" fill="#0d6efd" opacity="0.1" />
+  
+  <!-- Person Silhouette -->
+  <!-- Head -->
+  <circle cx="150" cy="120" r="60" fill="#0d6efd" />
+  
+  <!-- Body -->
+  <path d="M150 180 L150 280 C100 280 90 220 90 220 L150 180" fill="#0d6efd" />
+  <path d="M150 180 L150 280 C200 280 210 220 210 220 L150 180" fill="#0d6efd" />
+  
+  <!-- Face Features -->
+  <!-- Eyes -->
+  <circle cx="130" cy="110" r="10" fill="white" />
+  <circle cx="170" cy="110" r="10" fill="white" />
+  <circle cx="130" cy="110" r="5" fill="#212529" />
+  <circle cx="170" cy="110" r="5" fill="#212529" />
+  
+  <!-- Smile -->
+  <path d="M125 140 Q150 160 175 140" fill="none" stroke="white" stroke-width="3" />
+  
+  <!-- Beard -->
+  <path d="M120 150 Q150 180 180 150" fill="#212529" />
+  <path d="M120 150 L120 160 Q150 190 180 160 L180 150" fill="#212529" />
+  
+  <!-- Hair -->
+  <path d="M90 100 Q150 40 210 100" fill="#212529" />
+  
+  <!-- Decorative Elements -->
+  <!-- Name Tag -->
+  <rect x="90" y="200" width="120" height="20" rx="5" fill="white" />
+  <text x="150" y="214" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#0d6efd">PROGRAM DIRECTOR</text>
+</svg>

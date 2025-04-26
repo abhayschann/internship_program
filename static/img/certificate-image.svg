@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <!-- Background -->
+  <rect x="0" y="0" width="800" height="600" fill="#f8f9fa" />
+  
+  <!-- Certificate -->
+  <rect x="150" y="100" width="500" height="350" rx="10" fill="white" stroke="#0d6efd" stroke-width="5" />
+  
+  <!-- Certificate Header -->
+  <rect x="175" y="125" width="450" height="70" rx="5" fill="#0d6efd" opacity="0.1" />
+  <text x="400" y="165" font-family="Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#0d6efd">CERTIFICATE</text>
+  <text x="400" y="195" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#0d6efd">OF INTERNSHIP COMPLETION</text>
+  
+  <!-- Certificate Content -->
+  <text x="400" y="260" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#212529">This is to certify that</text>
+  <text x="400" y="300" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#212529">JOHN DOE</text>
+  <text x="400" y="340" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#212529">has successfully completed 3 months of internship in</text>
+  <text x="400" y="370" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#0d6efd">WEB DEVELOPMENT</text>
+  
+  <!-- Certificate Footer -->
+  <!-- Signature -->
+  <line x1="250" y1="420" x2="350" y2="420" stroke="#212529" stroke-width="1" />
+  <text x="300" y="440" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#212529">SIGNATURE</text>
+  
+  <!-- QR Code -->
+  <rect x="550" y="375" width="70" height="70" fill="#f8f9fa" stroke="#0d6efd" stroke-width="1" />
+  <rect x="560" y="385" width="10" height="10" fill="#212529" />
+  <rect x="580" y="385" width="10" height="10" fill="#212529" />
+  <rect x="600" y="385" width="10" height="10" fill="#212529" />
+  <rect x="560" y="405" width="10" height="10" fill="#212529" />
+  <rect x="580" y="405" width="10" height="10" fill="#212529" />
+  <rect x="600" y="405" width="10" height="10" fill="#212529" />
+  <rect x="560" y="425" width="10" height="10" fill="#212529" />
+  <rect x="580" y="425" width="10" height="10" fill="#212529" />
+  <rect x="600" y="425" width="10" height="10" fill="#212529" />
+  
+  <!-- Date -->
+  <line x1="450" y1="420" x2="550" y2="420" stroke="#212529" stroke-width="1" />
+  <text x="500" y="440" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#212529">DATE</text>
+  
+  <!-- Security Features -->
+  <text x="400" y="480" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#6c757d">Certificate ID: CERT-A1B2C3D4E5</text>
+  <text x="400" y="500" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#6c757d">Verify at: www.example.com/verify</text>
+  
+  <!-- Security Badge -->
+  <circle cx="200" cy="410" r="25" fill="white" stroke="#0d6efd" stroke-width="2" />
+  <path d="M190 410 L200 420 L215 405" fill="none" stroke="#0d6efd" stroke-width="3" />
+  
+  <!-- Decorative Elements -->
+  <circle cx="175" cy="125" r="10" fill="#0d6efd" opacity="0.5" />
+  <circle cx="625" cy="125" r="10" fill="#0d6efd" opacity="0.5" />
+  <circle cx="175" cy="425" r="10" fill="#0d6efd" opacity="0.5" />
+  <circle cx="625" cy="425" r="10" fill="#0d6efd" opacity="0.5" />
+  
+  <!-- Lock Icon (symbolizing security) -->
+  <rect x="670" y="230" width="40" height="30" rx="5" fill="#0d6efd" />
+  <rect x="680" y="200" width="20" height="30" rx="10" fill="#0d6efd" />
+  <circle cx="690" cy="240" r="5" fill="white" />
+</svg>
