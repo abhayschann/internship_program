@@ -39,12 +39,7 @@ app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
 app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
 
 # Database configuration
-# Use Replit's persistent key-value store for production
-if os.environ.get('REPLIT_DB_URL'):
-    from replit import db as replit_db
-    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///itservices.db"  # Keep SQLite for development
-else:
-    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///itservices.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL", "sqlite:///itservices.db")
 app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {
     "pool_recycle": 300,
     "pool_pre_ping": True,
