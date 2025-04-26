@@ -6,7 +6,7 @@ packages = ["freetype", "lcms2", "libimagequant", "libjpeg", "libtiff", "libwebp
 
 [deployment]
 deploymentTarget = "autoscale"
-run = ["gunicorn", "--bind", "0.0.0.0:5000", "main:app"]
+run = ["sh", "-c", "python3 -m flask run --host=0.0.0.0"]
 
 [workflows]
 runButton = "Start application"
