@@ -223,11 +223,25 @@ body {
 .form-container input[type="email"] {
     color: #212529;
     background-color: #fff;
+    border: 1px solid #ced4da;
+    padding: 0.375rem 0.75rem;
 }
 
 .form-label {
     color: #212529;
     font-weight: 500;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-check-label {
+    color: #212529;
+    cursor: pointer;
+}
+
+.form-check-input {
+    margin-right: 0.5rem;
+    cursor: pointer;
 }
 
 /* Verification page */
