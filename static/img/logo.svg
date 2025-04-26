@@ -2,16 +2,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 70" width="200" height="70">
   <!-- Main background -->
-  <rect x="0" y="0" width="200" height="70" rx="10" ry="10" fill="#0d6efd" />
+  <rect x="0" y="0" width="200" height="70" rx="10" ry="10" fill="#0d6efd"/>
   
   <!-- Tech symbol for IT company -->
-  <circle cx="35" cy="35" r="25" fill="white" opacity="0.9"/>
+  <circle cx="35" cy="35" r="25" fill="white"/>
   <path d="M25 25 L45 25 L45 30 L38 30 L38 45 L32 45 L32 30 L25 30 Z" fill="#0d6efd"/>
   
-  <!-- Company Name with increased contrast -->
-  <text x="75" y="32" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" opacity="0.9">TECH</text>
-  <text x="75" y="52" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" opacity="0.9">SOLUTIONS</text>
+  <!-- Company Name -->
+  <text x="75" y="32" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">TECH</text>
+  <text x="75" y="52" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">SOLUTIONS</text>
   
-  <!-- Tagline with increased contrast -->
-  <text x="75" y="65" font-family="Arial, sans-serif" font-size="8" fill="white" opacity="0.8">Innovation & Excellence</text>
+  <!-- Tagline -->
+  <text x="75" y="65" font-family="Arial, sans-serif" font-size="8" fill="white">Innovation & Excellence</text>
 </svg>
