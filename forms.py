@@ -24,7 +24,7 @@ class RegistrationForm(FlaskForm):
     def validate_email(self, email):
         user = User.query.filter_by(email=email.data).first()
         if user:
-            raise ValidationError('Email is already registered. Please use a different one.')
+            raise ValidationError('This email address is already associated with an account. Please try logging in or use a different email.')
 
 class ServiceForm(FlaskForm):
     title = StringField('Service Title', validators=[DataRequired(), Length(max=100)])
