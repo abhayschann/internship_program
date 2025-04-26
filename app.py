@@ -24,9 +24,18 @@ class Base(DeclarativeBase):
 
 db = SQLAlchemy(model_class=Base)
 
+def handle_db_error(e):
+    db.session.rollback()
+    flash('An error occurred. Please try again.', 'danger')
+    logger.error(f"Database error: {str(e)}")
+
 # Initialize Flask app
 app = Flask(__name__)
-app.secret_key = os.environ.get("SESSION_SECRET", "your_secret_key_here")
+app.secret_key = os.environ.get("SESSION_SECRET", secrets.token_hex(32))
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=7)
+app.config['SESSION_COOKIE_SECURE'] = True
+app.config['SESSION_COOKIE_HTTPONLY'] = True
+app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
 app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
 
 # Database configuration
@@ -71,7 +80,13 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 def allowed_file(filename):
-    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
+    if not filename:
+        return False
+    if '/' in filename or '\\' in filename:
+        return False
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS'] and \
+           len(filename) < 200
 
 def generate_certificate_image(certificate):
     # Create certificate image

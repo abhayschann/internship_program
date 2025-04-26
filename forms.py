@@ -1,7 +1,8 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
 from wtforms import StringField, PasswordField, BooleanField, TextAreaField, SelectField, IntegerField, DateField
-from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError, NumberRange, Optional
+from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError, NumberRange, Optional, Regexp
+import re
 from models import User
 from datetime import datetime
 
@@ -67,10 +68,25 @@ class CertificateForm(FlaskForm):
             raise ValidationError('End date cannot be in the future.')
 
 class ContactForm(FlaskForm):
-    name = StringField('Name', validators=[DataRequired(), Length(max=100)])
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    subject = StringField('Subject', validators=[DataRequired(), Length(max=150)])
-    message = TextAreaField('Message', validators=[DataRequired()])
+    name = StringField('Name', validators=[
+        DataRequired(),
+        Length(min=2, max=100),
+        Regexp(r'^[a-zA-Z\s]*$', message="Name can only contain letters and spaces")
+    ])
+    email = StringField('Email', validators=[
+        DataRequired(),
+        Email(),
+        Length(max=120)
+    ])
+    subject = StringField('Subject', validators=[
+        DataRequired(),
+        Length(min=5, max=150),
+        Regexp(r'^[a-zA-Z0-9\s\-_.,!?]*$', message="Subject contains invalid characters")
+    ])
+    message = TextAreaField('Message', validators=[
+        DataRequired(),
+        Length(min=10, max=2000)
+    ])
 
 class TestimonialForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired(), Length(max=100)])
