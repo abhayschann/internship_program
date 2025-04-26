@@ -218,6 +218,18 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.form-container input[type="text"],
+.form-container input[type="password"],
+.form-container input[type="email"] {
+    color: #212529;
+    background-color: #fff;
+}
+
+.form-label {
+    color: #212529;
+    font-weight: 500;
+}
+
 /* Verification page */
 .verification-form {
     max-width: 500px;
