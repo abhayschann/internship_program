@@ -1,3 +1,4 @@
+
 {% extends "layout.html" %}
 
 {% block title %}Register - IT Services Company{% endblock %}
@@ -18,9 +19,7 @@
                                 <label for="username" class="form-label">Username</label>
                                 <input type="text" class="form-control" id="username" name="username" value="{{ form.username.data or '' }}" required>
                                 <div class="form-text">Username must be between 3 and 20 characters.</div>
-                                <div class="invalid-feedback">
-                                    Please enter a username.
-                                </div>
+                                <div class="invalid-feedback">Please enter a username.</div>
                                 {% if form.username.errors %}
                                     <div class="text-danger">
                                         {% for error in form.username.errors %}
@@ -33,9 +32,7 @@
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="email" class="form-control" id="email" name="email" value="{{ form.email.data or '' }}" required>
-                                <div class="invalid-feedback">
-                                    Please enter a valid email address.
-                                </div>
+                                <div class="invalid-feedback">Please enter a valid email address.</div>
                                 {% if form.email.errors %}
                                     <div class="text-danger">
                                         {% for error in form.email.errors %}
@@ -49,9 +46,7 @@
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" class="form-control" id="password" name="password" required>
                                 <div class="form-text">Password must be at least 6 characters long.</div>
-                                <div class="invalid-feedback">
-                                    Please enter a password.
-                                </div>
+                                <div class="invalid-feedback">Please enter a password.</div>
                                 {% if form.password.errors %}
                                     <div class="text-danger">
                                         {% for error in form.password.errors %}
@@ -64,9 +59,7 @@
                             <div class="mb-4">
                                 <label for="confirm_password" class="form-label">Confirm Password</label>
                                 <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
-                                <div class="invalid-feedback">
-                                    Please confirm your password.
-                                </div>
+                                <div class="invalid-feedback">Please confirm your password.</div>
                                 {% if form.confirm_password.errors %}
                                     <div class="text-danger">
                                         {% for error in form.confirm_password.errors %}
