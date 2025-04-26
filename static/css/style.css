@@ -220,11 +220,50 @@ body {
 
 .form-container input[type="text"],
 .form-container input[type="password"],
-.form-container input[type="email"] {
+.form-container input[type="email"],
+.form-container input[type="tel"],
+.form-container input[type="number"],
+.form-container input[type="date"],
+.form-container input[type="file"],
+.form-container select,
+.form-container textarea {
+    width: 100%;
     color: #212529;
     background-color: #fff;
     border: 1px solid #ced4da;
-    padding: 0.375rem 0.75rem;
+    padding: 0.75rem;
+    border-radius: 4px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    margin-bottom: 1rem;
+}
+
+.form-container input:focus,
+.form-container select:focus,
+.form-container textarea:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    outline: none;
+}
+
+.form-container .form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #212529;
+}
+
+.form-container .form-text {
+    color: #6c757d;
+    font-size: 0.875rem;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+}
+
+.form-container .invalid-feedback,
+.form-container .text-danger {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: -0.75rem;
+    margin-bottom: 1rem;
 }
 
 .form-label {
