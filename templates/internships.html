@@ -1,0 +1,373 @@
+{% extends "layout.html" %}
+
+{% block title %}Internship Opportunities - IT Services Company{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container hero-content">
+        <div class="row align-items-center">
+            <div class="col-md-12 text-center">
+                <h1 class="display-4 fw-bold mb-4">Internship Opportunities</h1>
+                <p class="lead mb-4">Start your career journey with hands-on experience in the IT industry</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Internship Intro Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 mb-4 mb-md-0">
+                <h2 class="mb-4">Why Intern With Us?</h2>
+                <p class="lead">Our internship programs are designed to provide practical industry experience and help you develop the skills needed for a successful career in IT.</p>
+                <p>At IT Services Company, we believe in learning by doing. As an intern, you'll work on real projects, contribute to client solutions, and be mentored by experienced professionals in your field of interest.</p>
+                <p>Our internships are available to college students and recent graduates from all academic backgrounds, not just computer science or engineering majors.</p>
+            </div>
+            <div class="col-md-6">
+                <img src="{{ url_for('static', filename='img/internship-intro.svg') }}" alt="Internship Program" class="img-fluid rounded">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Available Internships Section -->
+<section class="py-5 bg-body-secondary">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="mb-3">Available Internships</h2>
+            <p class="lead">Explore our current internship opportunities</p>
+        </div>
+        
+        <div class="row">
+            {% for internship in internships %}
+                <div class="col-md-4 mb-4">
+                    <div class="card internship-card h-100">
+                        <div class="card-body p-4">
+                            <h3 class="card-title mb-3">{{ internship.title }}</h3>
+                            <div class="mb-3">
+                                <span class="badge bg-primary me-2">{{ internship.duration }}</span>
+                                {% if internship.stipend %}
+                                    <span class="badge bg-success">{{ internship.stipend }}</span>
+                                {% endif %}
+                            </div>
+                            <p class="card-text">{{ internship.description|truncate(150) }}</p>
+                            <div class="mt-3">
+                                <a href="{{ url_for('internship_detail', internship_id=internship.id) }}" class="btn btn-outline-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="col-12 text-center">
+                    <div class="alert alert-info">
+                        <p class="mb-0">There are currently no open internship positions. Please check back later or contact us for more information.</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Benefits Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="mb-3">Internship Benefits</h2>
+            <p class="lead">What you'll gain from our internship program</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card service-card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-laptop"></i>
+                        </div>
+                        <h4 class="card-title">Hands-on Experience</h4>
+                        <p class="card-text">Work on real projects and gain practical experience that goes beyond classroom learning.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="card service-card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <h4 class="card-title">Mentorship</h4>
+                        <p class="card-text">Receive guidance and support from experienced professionals in your field of interest.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="card service-card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-award"></i>
+                        </div>
+                        <h4 class="card-title">Verified Certificate</h4>
+                        <p class="card-text">Receive a tamper-proof certificate that validates your internship experience.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="card service-card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-cash-stack"></i>
+                        </div>
+                        <h4 class="card-title">Stipend</h4>
+                        <p class="card-text">Many of our internships come with a stipend to support you during your internship period.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="card service-card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-briefcase"></i>
+                        </div>
+                        <h4 class="card-title">Job Opportunities</h4>
+                        <p class="card-text">Top-performing interns may receive job offers upon successful completion of the program.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="card service-card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-graph-up"></i>
+                        </div>
+                        <h4 class="card-title">Skill Development</h4>
+                        <p class="card-text">Develop technical and soft skills that are in high demand in the IT industry.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Internship Process Section -->
+<section class="py-5 bg-body-secondary">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="mb-3">Internship Process</h2>
+            <p class="lead">How our internship program works</p>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-3 mb-4">
+                        <div class="card service-card h-100">
+                            <div class="card-body text-center p-4">
+                                <div class="bg-primary rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                    <h3 class="text-white mb-0">1</h3>
+                                </div>
+                                <h4 class="card-title">Apply</h4>
+                                <p class="card-text">Submit your application for the internship position of your choice.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3 mb-4">
+                        <div class="card service-card h-100">
+                            <div class="card-body text-center p-4">
+                                <div class="bg-primary rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                    <h3 class="text-white mb-0">2</h3>
+                                </div>
+                                <h4 class="card-title">Interview</h4>
+                                <p class="card-text">If selected, you'll be invited for an interview to discuss your skills and interests.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3 mb-4">
+                        <div class="card service-card h-100">
+                            <div class="card-body text-center p-4">
+                                <div class="bg-primary rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                    <h3 class="text-white mb-0">3</h3>
+                                </div>
+                                <h4 class="card-title">Onboard</h4>
+                                <p class="card-text">Once accepted, you'll go through an orientation and be assigned to a team.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3 mb-4">
+                        <div class="card service-card h-100">
+                            <div class="card-body text-center p-4">
+                                <div class="bg-primary rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
+                                    <h3 class="text-white mb-0">4</h3>
+                                </div>
+                                <h4 class="card-title">Certificate</h4>
+                                <p class="card-text">Upon successful completion, receive a verified certificate of internship.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="mb-3">Intern Testimonials</h2>
+            <p class="lead">Hear from our past interns</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="testimonial-card">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="{{ url_for('static', filename='img/intern-1.svg') }}" alt="Intern 1" class="testimonial-img me-3">
+                        <div>
+                            <h5 class="mb-0">Priya Sharma</h5>
+                            <p class="mb-0 text-secondary">Web Development Intern</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-quote">
+                        <p>"My internship at IT Services Company was a game-changer for my career. I gained practical experience in web development and learned how to work in a professional team environment."</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="testimonial-card">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="{{ url_for('static', filename='img/intern-2.svg') }}" alt="Intern 2" class="testimonial-img me-3">
+                        <div>
+                            <h5 class="mb-0">Rahul Patel</h5>
+                            <p class="mb-0 text-secondary">Data Science Intern</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-quote">
+                        <p>"Coming from a non-CS background, I was worried about entering the tech field. The mentorship and support I received during my internship helped me transition into a data science role smoothly."</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="testimonial-card">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="{{ url_for('static', filename='img/intern-3.svg') }}" alt="Intern 3" class="testimonial-img me-3">
+                        <div>
+                            <h5 class="mb-0">Aisha Khan</h5>
+                            <p class="mb-0 text-secondary">UI/UX Design Intern</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-quote">
+                        <p>"The best part about my internship was working on real client projects. The certificate I received has been valuable in my job search, and I'm now working full-time as a UI/UX designer."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-5 bg-body-secondary">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="mb-3">Frequently Asked Questions</h2>
+            <p class="lead">Find answers to common questions about our internship program</p>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="accordion" id="internshipFAQ">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Who can apply for the internships?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#internshipFAQ">
+                            <div class="accordion-body">
+                                Our internships are open to college students and recent graduates from all academic backgrounds. We welcome applicants from various disciplines, not just computer science or engineering. What matters most is your interest in technology and willingness to learn.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Are the internships paid?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#internshipFAQ">
+                            <div class="accordion-body">
+                                Yes, most of our internships come with a stipend. The amount varies depending on the specific position, duration, and your qualifications. Details about the stipend are provided in each internship listing.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                What is the duration of internships?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#internshipFAQ">
+                            <div class="accordion-body">
+                                Our internships typically last between 3 to 6 months, depending on the program and your availability. We offer flexible duration options to accommodate students' academic schedules.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                Is prior experience required?
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#internshipFAQ">
+                            <div class="accordion-body">
+                                While some technical roles may require specific skills or knowledge, many of our internships are designed for beginners. We value enthusiasm, willingness to learn, and problem-solving abilities over prior experience.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                Do you offer remote internships?
+                            </button>
+                        </h2>
+                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#internshipFAQ">
+                            <div class="accordion-body">
+                                Yes, we offer both in-person and remote internships. The availability of remote internships depends on the specific position and current business needs. Check the individual internship listings for details on whether remote work is an option.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-primary text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8 mb-3 mb-md-0">
+                <h2 class="mb-2">Ready to start your career journey?</h2>
+                <p class="mb-0 lead">Apply for an internship today and gain valuable industry experience.</p>
+            </div>
+            <div class="col-md-4 text-md-end">
+                <a href="#available-internships" class="btn btn-light">Browse Internships</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

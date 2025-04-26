@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+
+{% block title %}Register - IT Services Company{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-sm form-container">
+                    <div class="card-body p-5">
+                        <h1 class="text-center mb-4">Register</h1>
+                        
+                        <form method="POST" action="{{ url_for('register') }}" class="needs-validation" novalidate>
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                            
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" class="form-control" id="username" name="username" value="{{ form.username.data or '' }}" required>
+                                <div class="form-text">Username must be between 3 and 20 characters.</div>
+                                <div class="invalid-feedback">
+                                    Please enter a username.
+                                </div>
+                                {% if form.username.errors %}
+                                    <div class="text-danger">
+                                        {% for error in form.username.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" value="{{ form.email.data or '' }}" required>
+                                <div class="invalid-feedback">
+                                    Please enter a valid email address.
+                                </div>
+                                {% if form.email.errors %}
+                                    <div class="text-danger">
+                                        {% for error in form.email.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
+                                <div class="form-text">Password must be at least 6 characters long.</div>
+                                <div class="invalid-feedback">
+                                    Please enter a password.
+                                </div>
+                                {% if form.password.errors %}
+                                    <div class="text-danger">
+                                        {% for error in form.password.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="confirm_password" class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+                                <div class="invalid-feedback">
+                                    Please confirm your password.
+                                </div>
+                                {% if form.confirm_password.errors %}
+                                    <div class="text-danger">
+                                        {% for error in form.confirm_password.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="terms" required>
+                                    <label class="form-check-label" for="terms">
+                                        I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>
+                                    </label>
+                                    <div class="invalid-feedback">
+                                        You must agree to the terms and conditions.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg">Register</button>
+                            </div>
+                            
+                            <div class="text-center mt-4">
+                                <p>Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

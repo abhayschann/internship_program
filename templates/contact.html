@@ -1,0 +1,207 @@
+{% extends "layout.html" %}
+
+{% block title %}Contact Us - IT Services Company{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container hero-content">
+        <div class="row align-items-center">
+            <div class="col-md-12 text-center">
+                <h1 class="display-4 fw-bold mb-4">Contact Us</h1>
+                <p class="lead mb-4">Have questions? Get in touch with our team.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mb-5 mb-md-0">
+                <h2 class="mb-4">Get In Touch</h2>
+                <p class="mb-4">Fill out the form and our team will get back to you within 24 hours.</p>
+                
+                <form method="POST" action="{{ url_for('contact') }}" class="needs-validation" novalidate>
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                    
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="John Doe" required>
+                        <div class="invalid-feedback">
+                            Please provide your name.
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="john@example.com" required>
+                        <div class="invalid-feedback">
+                            Please provide a valid email address.
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" class="form-control" id="subject" name="subject" placeholder="How can we help you?" required>
+                        <div class="invalid-feedback">
+                            Please provide a subject.
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" name="message" rows="5" placeholder="Your message here..." required></textarea>
+                        <div class="invalid-feedback">
+                            Please provide a message.
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+                </form>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="ps-md-5">
+                    <h2 class="mb-4">Contact Information</h2>
+                    
+                    <div class="contact-info-item d-flex align-items-center">
+                        <i class="bi bi-geo-alt-fill me-3"></i>
+                        <div>
+                            <h5 class="mb-1">Address</h5>
+                            <p>123 Tech Street, Silicon Valley, CA 94043</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item d-flex align-items-center">
+                        <i class="bi bi-telephone-fill me-3"></i>
+                        <div>
+                            <h5 class="mb-1">Phone</h5>
+                            <p>+1 (123) 456-7890</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item d-flex align-items-center">
+                        <i class="bi bi-envelope-fill me-3"></i>
+                        <div>
+                            <h5 class="mb-1">Email</h5>
+                            <p>info@itservices.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item d-flex align-items-center">
+                        <i class="bi bi-clock-fill me-3"></i>
+                        <div>
+                            <h5 class="mb-1">Business Hours</h5>
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                            <p>Saturday - Sunday: Closed</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-5">
+                        <h5 class="mb-3">Follow Us</h5>
+                        <div class="social-icons">
+                            <a href="#" class="me-2"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="me-2"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="me-2"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="me-2"><i class="bi bi-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map Section -->
+<section class="py-5 bg-body-secondary">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="mb-3">Find Us</h2>
+            <p class="lead">Visit our office or navigate to our location</p>
+        </div>
+        
+        <div class="google-map">
+            <!-- Placeholder for Google Map - In a real app, would include actual Google Maps embed -->
+            <div class="ratio ratio-16x9">
+                <div class="bg-body-tertiary d-flex align-items-center justify-content-center">
+                    <div class="text-center">
+                        <i class="bi bi-geo-alt" style="font-size: 4rem;"></i>
+                        <h4 class="mt-3">Google Maps Would Be Embedded Here</h4>
+                        <p class="mb-0">123 Tech Street, Silicon Valley, CA 94043</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="mb-3">Frequently Asked Questions</h2>
+            <p class="lead">Find answers to common questions</p>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="accordion" id="contactFAQ">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                How can I apply for an internship?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#contactFAQ">
+                            <div class="accordion-body">
+                                You can apply for an internship by visiting our <a href="{{ url_for('internships') }}">Internships</a> page, selecting the internship you're interested in, and filling out the application form. If you have any questions about the application process, feel free to contact us.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                How can I verify the authenticity of my certificate?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#contactFAQ">
+                            <div class="accordion-body">
+                                You can verify the authenticity of your certificate by visiting our <a href="{{ url_for('verify') }}">Certificate Verification</a> page and entering your certificate ID. You can also scan the QR code on your certificate for immediate verification.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Do you offer remote internships?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#contactFAQ">
+                            <div class="accordion-body">
+                                Yes, we offer both in-person and remote internships. The availability of remote internships depends on the specific position and current business needs. Check the individual internship listings for details on whether remote work is an option.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                How long does the typical internship last?
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#contactFAQ">
+                            <div class="accordion-body">
+                                Our internships typically last between 3 to 6 months, depending on the program and your availability. We offer flexible duration options to accommodate students' academic schedules.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

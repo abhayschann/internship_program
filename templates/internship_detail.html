@@ -1,0 +1,231 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ internship.title }} - IT Services Company{% endblock %}
+
+{% block content %}
+<!-- Internship Details Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <nav aria-label="breadcrumb" class="mb-4">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url_for('internships') }}">Internships</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ internship.title }}</li>
+                    </ol>
+                </nav>
+                
+                <h1 class="mb-4">{{ internship.title }}</h1>
+                
+                <div class="mb-4">
+                    <span class="badge bg-primary me-2">{{ internship.duration }}</span>
+                    {% if internship.stipend %}
+                        <span class="badge bg-success">{{ internship.stipend }}</span>
+                    {% endif %}
+                </div>
+                
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h4 class="card-title mb-3">Description</h4>
+                        <p class="card-text">{{ internship.description|safe }}</p>
+                    </div>
+                </div>
+                
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h4 class="card-title mb-3">Requirements</h4>
+                        <div class="card-text">
+                            {% if internship.requirements %}
+                                {{ internship.requirements|safe }}
+                            {% else %}
+                                <p>No specific requirements have been mentioned for this internship.</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h4 class="card-title mb-3">What You'll Learn</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Practical experience in {{ internship.title }}</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Industry best practices and workflows</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Collaboration in professional team environments</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Project management and communication skills</li>
+                            <li><i class="bi bi-check-circle-fill text-success me-2"></i> Portfolio development with real-world projects</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title mb-3">Certificate</h4>
+                        <p>Upon successful completion of this internship, you will receive a verified certificate that includes:</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-shield-check text-primary me-2"></i> Secure verification with QR code</li>
+                            <li class="mb-2"><i class="bi bi-person-badge text-primary me-2"></i> Personal signature from your mentor</li>
+                            <li class="mb-2"><i class="bi bi-card-checklist text-primary me-2"></i> Details of projects you worked on</li>
+                            <li><i class="bi bi-link-45deg text-primary me-2"></i> Online verification page for future reference</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card sticky-top" style="top: 20px;">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="card-title mb-0">Apply Now</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="mb-4">Complete the application form to express your interest in this internship position.</p>
+                        <a href="{{ url_for('apply', internship_id=internship.id) }}" class="btn btn-primary w-100">Apply for this Internship</a>
+                    </div>
+                    <div class="card-footer">
+                        <p class="mb-0"><small>Posted on: {{ internship.date_posted.strftime('%B %d, %Y') }}</small></p>
+                    </div>
+                </div>
+                
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Internship Details</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled">
+                            <li class="mb-3">
+                                <div class="d-flex">
+                                    <div class="me-3">
+                                        <i class="bi bi-calendar-range text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Duration:</strong>
+                                        <p class="mb-0">{{ internship.duration }}</p>
+                                    </div>
+                                </div>
+                            </li>
+                            {% if internship.stipend %}
+                                <li class="mb-3">
+                                    <div class="d-flex">
+                                        <div class="me-3">
+                                            <i class="bi bi-cash text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Stipend:</strong>
+                                            <p class="mb-0">{{ internship.stipend }}</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            {% endif %}
+                            <li class="mb-3">
+                                <div class="d-flex">
+                                    <div class="me-3">
+                                        <i class="bi bi-geo-alt text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Location:</strong>
+                                        <p class="mb-0">Silicon Valley, CA (Remote options available)</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex">
+                                    <div class="me-3">
+                                        <i class="bi bi-clock text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Application Deadline:</strong>
+                                        <p class="mb-0">Open until filled</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Share This Internship</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-around">
+                            <a href="#" class="text-primary fs-4"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="text-primary fs-4"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="text-primary fs-4"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="text-primary fs-4"><i class="bi bi-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Similar Internships Section -->
+<section class="py-5 bg-body-secondary">
+    <div class="container">
+        <h2 class="mb-4">Similar Internships</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card internship-card h-100">
+                    <div class="card-body p-4">
+                        <h3 class="card-title mb-3">Web Development</h3>
+                        <div class="mb-3">
+                            <span class="badge bg-primary me-2">3 months</span>
+                            <span class="badge bg-success">Paid</span>
+                        </div>
+                        <p class="card-text">Learn modern web development technologies and build real-world applications.</p>
+                        <div class="mt-3">
+                            <a href="#" class="btn btn-outline-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card internship-card h-100">
+                    <div class="card-body p-4">
+                        <h3 class="card-title mb-3">Data Science</h3>
+                        <div class="mb-3">
+                            <span class="badge bg-primary me-2">6 months</span>
+                            <span class="badge bg-success">Paid</span>
+                        </div>
+                        <p class="card-text">Analyze data, build models, and derive insights using data science techniques.</p>
+                        <div class="mt-3">
+                            <a href="#" class="btn btn-outline-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card internship-card h-100">
+                    <div class="card-body p-4">
+                        <h3 class="card-title mb-3">UI/UX Design</h3>
+                        <div class="mb-3">
+                            <span class="badge bg-primary me-2">4 months</span>
+                            <span class="badge bg-success">Paid</span>
+                        </div>
+                        <p class="card-text">Design user interfaces and experiences for web and mobile applications.</p>
+                        <div class="mt-3">
+                            <a href="#" class="btn btn-outline-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Apply CTA Section -->
+<section class="py-5 bg-primary text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8 mb-3 mb-md-0">
+                <h2 class="mb-2">Ready to apply for this internship?</h2>
+                <p class="mb-0 lead">Take the first step towards your career in {{ internship.title }}</p>
+            </div>
+            <div class="col-md-4 text-md-end">
+                <a href="{{ url_for('apply', internship_id=internship.id) }}" class="btn btn-light">Apply Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

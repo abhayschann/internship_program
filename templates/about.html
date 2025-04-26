@@ -1,0 +1,179 @@
+{% extends "layout.html" %}
+
+{% block title %}About Us - IT Services Company{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container hero-content">
+        <div class="row align-items-center">
+            <div class="col-md-12 text-center">
+                <h1 class="display-4 fw-bold mb-4">About Us</h1>
+                <p class="lead mb-4">Learn more about our company, our mission, and the team behind our success.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Company Overview Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mb-4 mb-md-0">
+                <h2 class="mb-4">Our Story</h2>
+                <p>Founded in 2010, IT Services Company has grown from a small team of passionate tech enthusiasts to a leading IT services provider with a mission to bridge the gap between academic knowledge and industry requirements.</p>
+                <p>Over the years, we have helped numerous businesses transform their digital presence and provided valuable internship experiences to students from diverse academic backgrounds.</p>
+                <p>What sets us apart is our commitment to not only deliver exceptional IT services but also to nurture the next generation of tech professionals through our comprehensive internship programs.</p>
+            </div>
+            <div class="col-md-6">
+                <img src="{{ url_for('static', filename='img/company-history.svg') }}" alt="Company History" class="img-fluid rounded">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mission and Vision Section -->
+<section class="py-5 bg-body-secondary">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 order-md-2 mb-4 mb-md-0">
+                <h2 class="mb-4">Our Mission & Vision</h2>
+                <div class="mb-4">
+                    <h4><i class="bi bi-bullseye text-primary me-2"></i> Mission</h4>
+                    <p>To deliver innovative IT solutions that help businesses thrive in the digital landscape while providing students with practical industry experience through internships that complement their academic learning.</p>
+                </div>
+                <div>
+                    <h4><i class="bi bi-eye text-primary me-2"></i> Vision</h4>
+                    <p>To be the premier IT services company that is recognized not only for its technical excellence but also for its contribution to developing skilled IT professionals through internship programs.</p>
+                </div>
+            </div>
+            <div class="col-md-6 order-md-1">
+                <img src="{{ url_for('static', filename='img/mission-vision.svg') }}" alt="Mission and Vision" class="img-fluid rounded">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Team Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="mb-3">Meet Our Team</h2>
+            <p class="lead">The talented professionals behind our success</p>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="team-member">
+                    <img src="{{ url_for('static', filename='img/team-1.svg') }}" alt="Team Member 1">
+                    <h4>John Doe</h4>
+                    <p class="text-secondary">CEO & Founder</p>
+                    <p>With over 20 years of experience in the IT industry, John leads our company with a vision for innovation and excellence.</p>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="me-2"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="me-2"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-envelope-fill"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="team-member">
+                    <img src="{{ url_for('static', filename='img/team-2.svg') }}" alt="Team Member 2">
+                    <h4>Jane Smith</h4>
+                    <p class="text-secondary">CTO</p>
+                    <p>Jane oversees our technical operations and ensures that we stay at the forefront of technological advancements.</p>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="me-2"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="me-2"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-envelope-fill"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="team-member">
+                    <img src="{{ url_for('static', filename='img/team-3.svg') }}" alt="Team Member 3">
+                    <h4>Michael Johnson</h4>
+                    <p class="text-secondary">Internship Program Director</p>
+                    <p>Michael manages our internship programs and ensures that every intern gets a valuable learning experience.</p>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="me-2"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="me-2"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-envelope-fill"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Company Values Section -->
+<section class="py-5 bg-body-secondary">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="mb-3">Our Core Values</h2>
+            <p class="lead">The principles that guide our work and relationships</p>
+        </div>
+        <div class="row">
+            <div class="col-md-3 mb-4">
+                <div class="card service-card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-stars"></i>
+                        </div>
+                        <h4 class="card-title">Excellence</h4>
+                        <p class="card-text">We strive for excellence in everything we do, from the services we provide to the internships we offer.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card service-card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-lightbulb"></i>
+                        </div>
+                        <h4 class="card-title">Innovation</h4>
+                        <p class="card-text">We embrace innovation and constantly seek new ways to improve our services and internship programs.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card service-card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <h4 class="card-title">Collaboration</h4>
+                        <p class="card-text">We believe in the power of collaboration and teamwork to achieve our goals and deliver results.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card service-card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-book"></i>
+                        </div>
+                        <h4 class="card-title">Learning</h4>
+                        <p class="card-text">We are committed to continuous learning and professional development for both our team and interns.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8 mb-4 mb-md-0">
+                <h2 class="mb-3">Join Our Team</h2>
+                <p>We're always looking for talented individuals to join our team. Check out our internship opportunities or contact us to learn more about career possibilities at IT Services Company.</p>
+            </div>
+            <div class="col-md-4 text-md-end">
+                <a href="{{ url_for('internships') }}" class="btn btn-primary me-2">View Internships</a>
+                <a href="{{ url_for('contact') }}" class="btn btn-outline-primary">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

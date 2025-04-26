@@ -1,77 +1,191 @@
-{% extends 'layout.html' %}
+{% extends "layout.html" %}
+
+{% block title %}IT Services - Home{% endblock %}
 
 {% block content %}
-<div class="row align-items-center my-5">
-    <div class="col-lg-6">
-        <h1 class="display-4 fw-bold">Spring Boot REST API Generator</h1>
-        <p class="lead">Create complete RESTful APIs for your Spring Boot microservices without writing boilerplate code.</p>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-4">
-            <a href="{{ url_for('entity_editor') }}" class="btn btn-primary btn-lg px-4 me-md-2">
-                <i class="fa-solid fa-plus me-2"></i>Create New Project
-            </a>
-            <a href="{{ url_for('import_code') }}" class="btn btn-outline-secondary btn-lg px-4">
-                <i class="fa-solid fa-file-import me-2"></i>Import Existing Code
-            </a>
-        </div>
-    </div>
-    <div class="col-lg-6 text-center">
-        <i class="fa-solid fa-gears text-primary" style="font-size: 10rem;"></i>
-    </div>
-</div>
-
-<hr class="my-5">
-
-<div class="row g-4 py-4">
-    <div class="col-md-4">
-        <div class="card h-100">
-            <div class="card-body text-center">
-                <i class="fa-solid fa-database mb-3" style="font-size: 3rem; color: var(--bs-primary);"></i>
-                <h3 class="card-title">Define Entities</h3>
-                <p class="card-text">Create your data models with a simple interface. Add fields, relationships, and validation rules.</p>
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container hero-content">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold mb-4">Innovative IT Solutions for Your Business</h1>
+                <p class="lead mb-4">We provide cutting-edge IT services and internship opportunities for college students and new graduates from all domains.</p>
+                <div class="d-flex gap-3">
+                    <a href="{{ url_for('services') }}" class="btn btn-light btn-lg">Our Services</a>
+                    <a href="{{ url_for('internships') }}" class="btn btn-outline-light btn-lg">Internship Programs</a>
+                </div>
+            </div>
+            <div class="col-lg-6 d-none d-lg-block">
+                <img src="{{ url_for('static', filename='img/hero-image.svg') }}" alt="IT Services" class="img-fluid">
             </div>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="card h-100">
-            <div class="card-body text-center">
-                <i class="fa-solid fa-code mb-3" style="font-size: 3rem; color: var(--bs-primary);"></i>
-                <h3 class="card-title">Generate Code</h3>
-                <p class="card-text">Automatically generate controllers, services, and repositories following Spring Boot best practices.</p>
+</section>
+
+<!-- About Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mb-4 mb-md-0">
+                <img src="{{ url_for('static', filename='img/about-image.svg') }}" alt="About Us" class="img-fluid rounded">
+            </div>
+            <div class="col-md-6">
+                <h2 class="mb-4">Who We Are</h2>
+                <p class="lead">A leading IT services company dedicated to delivering innovative solutions and nurturing fresh talent through internship programs.</p>
+                <p>Our mission is to bridge the gap between academic knowledge and industry requirements by providing real-world experience to college students and new graduates from all domains.</p>
+                <p>We believe in creating a learning environment where students can apply their theoretical knowledge, develop new skills, and prepare for successful careers in the IT industry.</p>
+                <a href="{{ url_for('about') }}" class="btn btn-primary mt-3">Learn More About Us</a>
             </div>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="card h-100">
-            <div class="card-body text-center">
-                <i class="fa-solid fa-download mb-3" style="font-size: 3rem; color: var(--bs-primary);"></i>
-                <h3 class="card-title">Export & Use</h3>
-                <p class="card-text">Download the generated code and integrate it directly into your Spring Boot project.</p>
+</section>
+
+<!-- Services Section -->
+<section class="py-5 bg-body-secondary">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="mb-3">Our Services</h2>
+            <p class="lead">We offer a wide range of IT services to meet your business needs</p>
+        </div>
+        <div class="row">
+            {% for service in services %}
+                <div class="col-md-4 mb-4">
+                    <div class="card service-card">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">
+                                <i class="{{ service.icon }}"></i>
+                            </div>
+                            <h4 class="card-title">{{ service.title }}</h4>
+                            <p class="card-text">{{ service.description|truncate(100) }}</p>
+                            <a href="{{ url_for('services') }}" class="btn btn-outline-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="col-12 text-center">
+                    <p>No services available at the moment. Please check back later.</p>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-4">
+            <a href="{{ url_for('services') }}" class="btn btn-primary">View All Services</a>
+        </div>
+    </div>
+</section>
+
+<!-- Internship Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="mb-3">Internship Opportunities</h2>
+            <p class="lead">Start your career journey with our internship programs</p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-4 mb-4">
+                <div class="card internship-card">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-code-slash"></i>
+                        </div>
+                        <h4 class="card-title">Web Development</h4>
+                        <p class="card-text">Learn modern web development technologies and build real-world applications.</p>
+                        <a href="{{ url_for('internships') }}" class="btn btn-outline-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card internship-card">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-phone"></i>
+                        </div>
+                        <h4 class="card-title">Mobile App Development</h4>
+                        <p class="card-text">Develop cross-platform mobile applications using the latest frameworks.</p>
+                        <a href="{{ url_for('internships') }}" class="btn btn-outline-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card internship-card">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-graph-up"></i>
+                        </div>
+                        <h4 class="card-title">Data Science</h4>
+                        <p class="card-text">Analyze data, build models, and derive insights using data science techniques.</p>
+                        <a href="{{ url_for('internships') }}" class="btn btn-outline-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <a href="{{ url_for('internships') }}" class="btn btn-primary">Explore All Internships</a>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-5 bg-body-secondary">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="mb-3">What Our Interns Say</h2>
+            <p class="lead">Hear from our past interns about their experience with us</p>
+        </div>
+        <div class="row">
+            {% for testimonial in testimonials %}
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="{{ url_for('static', filename='uploads/profiles/' + testimonial.image) }}" alt="{{ testimonial.name }}" class="testimonial-img me-3">
+                            <div>
+                                <h5 class="mb-0">{{ testimonial.name }}</h5>
+                                <p class="mb-0 text-secondary">{{ testimonial.position }}{% if testimonial.company %}, {{ testimonial.company }}{% endif %}</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-quote">
+                            <p>{{ testimonial.content|truncate(150) }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="col-12 text-center">
+                    <p>No testimonials available at the moment.</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Certificate Verification Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 mb-4 mb-md-0">
+                <h2 class="mb-4">Secure Certificate Verification</h2>
+                <p>Our certificate system ensures that all internship and work experience certificates are authentic and tamper-proof.</p>
+                <p>Each certificate includes a unique QR code and verification ID that can be used to verify its authenticity on our website.</p>
+                <a href="{{ url_for('verify') }}" class="btn btn-primary mt-3">Verify a Certificate</a>
+            </div>
+            <div class="col-md-6 text-center">
+                <img src="{{ url_for('static', filename='img/certificate-image.svg') }}" alt="Certificate Verification" class="img-fluid" style="max-width: 400px;">
             </div>
         </div>
     </div>
-</div>
+</section>
 
-<hr class="my-5">
-
-<div class="row py-4">
-    <div class="col-12 text-center mb-4">
-        <h2>Features</h2>
+<!-- CTA Section -->
+<section class="py-5 bg-primary text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8 mb-3 mb-md-0">
+                <h2 class="mb-2">Ready to start your journey with us?</h2>
+                <p class="mb-0 lead">Apply for an internship or contact us to learn more about our services.</p>
+            </div>
+            <div class="col-md-4 text-md-end">
+                <a href="{{ url_for('internships') }}" class="btn btn-light me-2">Apply Now</a>
+                <a href="{{ url_for('contact') }}" class="btn btn-outline-light">Contact Us</a>
+            </div>
+        </div>
     </div>
-    <div class="col-md-6">
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item"><i class="fa-solid fa-check text-success me-2"></i> Complete CRUD operations</li>
-            <li class="list-group-item"><i class="fa-solid fa-check text-success me-2"></i> Entity relationship support</li>
-            <li class="list-group-item"><i class="fa-solid fa-check text-success me-2"></i> Input validation rules</li>
-            <li class="list-group-item"><i class="fa-solid fa-check text-success me-2"></i> Spring Data JPA integration</li>
-        </ul>
-    </div>
-    <div class="col-md-6">
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item"><i class="fa-solid fa-check text-success me-2"></i> Swagger/OpenAPI documentation</li>
-            <li class="list-group-item"><i class="fa-solid fa-check text-success me-2"></i> Error handling patterns</li>
-            <li class="list-group-item"><i class="fa-solid fa-check text-success me-2"></i> Import existing code</li>
-            <li class="list-group-item"><i class="fa-solid fa-check text-success me-2"></i> Spring Boot best practices</li>
-        </ul>
-    </div>
-</div>
+</section>
 {% endblock %}

@@ -1,0 +1,257 @@
+{% extends "layout.html" %}
+
+{% block title %}Our Services - IT Services Company{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container hero-content">
+        <div class="row align-items-center">
+            <div class="col-md-12 text-center">
+                <h1 class="display-4 fw-bold mb-4">Our Services</h1>
+                <p class="lead mb-4">We offer a wide range of IT services to meet your business needs</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            {% for service in services %}
+                <div class="col-md-4 mb-4">
+                    <div class="card service-card h-100">
+                        <div class="card-body p-4">
+                            <div class="text-center mb-4">
+                                <div class="service-icon">
+                                    <i class="{{ service.icon }}"></i>
+                                </div>
+                                <h3 class="card-title mt-3">{{ service.title }}</h3>
+                            </div>
+                            <p class="card-text">{{ service.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="col-12 text-center">
+                    <div class="alert alert-info">
+                        <p class="mb-0">No services are currently available. Please check back later.</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Our Approach Section -->
+<section class="py-5 bg-body-secondary">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="mb-3">Our Approach</h2>
+            <p class="lead">How we deliver our services</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-3 mb-4">
+                <div class="card service-card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-chat-dots"></i>
+                        </div>
+                        <h4 class="card-title">Consultation</h4>
+                        <p class="card-text">We start with understanding your requirements and challenges through detailed consultations.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 mb-4">
+                <div class="card service-card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-columns-gap"></i>
+                        </div>
+                        <h4 class="card-title">Planning</h4>
+                        <p class="card-text">We create a detailed plan with clear milestones and deliverables for your project.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 mb-4">
+                <div class="card service-card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-gear"></i>
+                        </div>
+                        <h4 class="card-title">Implementation</h4>
+                        <p class="card-text">Our expert team implements the solution with a focus on quality and efficiency.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 mb-4">
+                <div class="card service-card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-arrow-repeat"></i>
+                        </div>
+                        <h4 class="card-title">Support</h4>
+                        <p class="card-text">We provide ongoing support and maintenance to ensure your solution continues to deliver value.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 mb-4 mb-md-0">
+                <img src="{{ url_for('static', filename='img/why-choose-us.svg') }}" alt="Why Choose Us" class="img-fluid rounded">
+            </div>
+            <div class="col-md-6">
+                <h2 class="mb-4">Why Choose Us</h2>
+                <div class="mb-4">
+                    <div class="d-flex align-items-start mb-3">
+                        <div class="bg-primary rounded-circle p-2 text-white me-3" style="width: 40px; height: 40px; text-align: center;">
+                            <i class="bi bi-check2"></i>
+                        </div>
+                        <div>
+                            <h5>Expertise</h5>
+                            <p>Our team consists of experienced professionals with diverse skills and expertise in various IT domains.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start mb-3">
+                        <div class="bg-primary rounded-circle p-2 text-white me-3" style="width: 40px; height: 40px; text-align: center;">
+                            <i class="bi bi-check2"></i>
+                        </div>
+                        <div>
+                            <h5>Tailored Solutions</h5>
+                            <p>We create customized solutions that address your specific business challenges and requirements.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start mb-3">
+                        <div class="bg-primary rounded-circle p-2 text-white me-3" style="width: 40px; height: 40px; text-align: center;">
+                            <i class="bi bi-check2"></i>
+                        </div>
+                        <div>
+                            <h5>Timely Delivery</h5>
+                            <p>We are committed to delivering projects on time and within budget without compromising quality.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start">
+                        <div class="bg-primary rounded-circle p-2 text-white me-3" style="width: 40px; height: 40px; text-align: center;">
+                            <i class="bi bi-check2"></i>
+                        </div>
+                        <div>
+                            <h5>Comprehensive Support</h5>
+                            <p>We provide ongoing support and maintenance to ensure your IT infrastructure runs smoothly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Industries We Serve Section -->
+<section class="py-5 bg-body-secondary">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="mb-3">Industries We Serve</h2>
+            <p class="lead">Our services cater to various industries</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card service-card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-building"></i>
+                        </div>
+                        <h4 class="card-title">Corporate</h4>
+                        <p class="card-text">Enterprise solutions for large corporations, including system integration and digital transformation.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="card service-card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-shop"></i>
+                        </div>
+                        <h4 class="card-title">Retail</h4>
+                        <p class="card-text">E-commerce solutions, POS systems, and inventory management for retail businesses.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="card service-card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-bank"></i>
+                        </div>
+                        <h4 class="card-title">Finance</h4>
+                        <p class="card-text">Secure financial systems, compliance solutions, and data management for financial institutions.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="card service-card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-hospital"></i>
+                        </div>
+                        <h4 class="card-title">Healthcare</h4>
+                        <p class="card-text">Healthcare management systems, telemedicine platforms, and compliant data storage solutions.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="card service-card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-book"></i>
+                        </div>
+                        <h4 class="card-title">Education</h4>
+                        <p class="card-text">E-learning platforms, student management systems, and digital classroom solutions.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="card service-card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon">
+                            <i class="bi bi-truck"></i>
+                        </div>
+                        <h4 class="card-title">Logistics</h4>
+                        <p class="card-text">Supply chain management, fleet tracking, and logistics optimization systems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-primary text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8 mb-3 mb-md-0">
+                <h2 class="mb-2">Ready to transform your business?</h2>
+                <p class="mb-0 lead">Contact us today to discuss how our services can help your business grow.</p>
+            </div>
+            <div class="col-md-4 text-md-end">
+                <a href="{{ url_for('contact') }}" class="btn btn-light">Get in Touch</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

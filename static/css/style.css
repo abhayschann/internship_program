@@ -1,93 +1,290 @@
-/* Custom styles for Spring Boot REST API Generator */
+/* Custom styles for IT Services Company */
 
-/* Entity editor styles */
-.entity-list {
-    max-height: 300px;
-    overflow-y: auto;
+/* Remove margin and padding from the body */
+body {
+    font-family: 'Roboto', sans-serif;
 }
 
-/* Code editor styles */
-.CodeMirror {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    height: auto;
-    min-height: 300px;
+/* Hero section */
+.hero {
+    background-color: #0d6efd;
+    color: white;
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
 }
 
-/* File list styles */
-.file-list {
-    max-height: 500px;
-    overflow-y: auto;
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../img/hero-bg.jpg') no-repeat center center;
+    background-size: cover;
+    opacity: 0.3;
+    z-index: 0;
 }
 
-/* Field validation rule checkboxes */
-.validation-rule {
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Services section */
+.service-card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    color: #0d6efd;
+    margin-bottom: 1rem;
+}
+
+/* Internship cards */
+.internship-card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    height: 100%;
+}
+
+.internship-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Footer */
+.footer {
+    background-color: #212529;
+    color: white;
+    padding: 50px 0 20px;
+}
+
+.footer-links {
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-align: center;
+    line-height: 36px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: #0d6efd;
+}
+
+/* Certificate styles */
+.certificate-container {
+    max-width: 900px;
+    margin: 0 auto;
+    border: 2px solid #0d6efd;
+    padding: 30px;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.certificate-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.certificate-title {
+    color: #0d6efd;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.certificate-body {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.certificate-recipient {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.certificate-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.certificate-signature {
+    text-align: left;
+}
+
+.certificate-verification {
+    text-align: right;
+}
+
+/* Admin Dashboard */
+.admin-sidebar {
+    min-height: calc(100vh - 56px);
+    background-color: #212529;
+}
+
+.admin-sidebar .nav-link {
+    color: rgba(255, 255, 255, 0.7);
+    padding: 12px 20px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.admin-sidebar .nav-link:hover,
+.admin-sidebar .nav-link.active {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.admin-sidebar .nav-link i {
     margin-right: 10px;
 }
 
-/* Custom card styling */
-.card {
-    border-color: rgba(255, 255, 255, 0.1);
-    margin-bottom: 1.5rem;
+.admin-content {
+    padding: 20px;
 }
 
-.card-header {
-    background-color: rgba(255, 255, 255, 0.05);
+.dashboard-card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Make form labels a bit lighter */
-.form-label {
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.8);
+.dashboard-card-icon {
+    font-size: 2rem;
+    margin-bottom: 15px;
 }
 
-/* Focus styles for form controls */
-.form-control:focus, .form-select:focus {
-    border-color: var(--bs-primary);
-    box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
+/* Status badges */
+.status-pending {
+    background-color: #ffc107;
+    color: #212529;
 }
 
-/* Custom styling for buttons */
-.btn-primary {
-    background-color: var(--bs-primary);
-    border-color: var(--bs-primary);
+.status-approved {
+    background-color: #198754;
+    color: white;
 }
 
-.btn-primary:hover {
-    background-color: var(--bs-primary-darker, #0056b3);
-    border-color: var(--bs-primary-darker, #0056b3);
+.status-rejected {
+    background-color: #dc3545;
+    color: white;
 }
 
-/* Hover effect for entity list items */
-.entity-list .list-group-item:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    cursor: pointer;
+/* Forms */
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.entity-list .list-group-item.active {
-    background-color: var(--bs-primary);
-    border-color: var(--bs-primary);
+/* Verification page */
+.verification-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Custom toast styling */
-.toast {
-    z-index: 9999;
+/* About page */
+.team-member {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .card-header {
-        padding: 0.75rem;
-    }
-    
-    .card-body {
-        padding: 1rem;
-    }
-    
-    .field-row {
-        margin-bottom: 1.5rem;
-    }
-    
-    .form-label {
-        margin-bottom: 0.25rem;
-    }
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+/* Testimonials */
+.testimonial-card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    height: 100%;
+}
+
+.testimonial-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.testimonial-quote {
+    position: relative;
+    padding: 20px 0;
+}
+
+.testimonial-quote::before {
+    content: """;
+    font-size: 80px;
+    color: rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: -20px;
+    left: -10px;
+}
+
+/* Contact page */
+.contact-info-item {
+    margin-bottom: 20px;
+}
+
+.contact-info-item i {
+    font-size: 1.5rem;
+    color: #0d6efd;
+    margin-right: 15px;
+}
+
+.google-map {
+    width: 100%;
+    height: 400px;
+    border-radius: 8px;
 }

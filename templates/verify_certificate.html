@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block title %}Certificate Verification{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body p-5">
+                    <h1 class="text-center mb-4 text-success">Certificate Verified</h1>
+                    <div class="text-center mb-4">
+                        <i class="bi bi-patch-check-fill text-success" style="font-size: 3rem;"></i>
+                        <p class="mt-3 lead">This certificate is authentic and has been verified in our system.</p>
+                    </div>
+                    
+                    <div class="certificate-details mt-5">
+                        <h3 class="mb-4">Certificate Details</h3>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-4 fw-bold">Certificate ID:</div>
+                            <div class="col-md-8">{{ certificate.certificate_id }}</div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-4 fw-bold">Recipient Name:</div>
+                            <div class="col-md-8">{{ certificate.recipient_name }}</div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-4 fw-bold">Certificate Type:</div>
+                            <div class="col-md-8">
+                                {{ "Internship Certificate" if certificate.certificate_type == "internship" else "Work Experience Certificate" }}
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-4 fw-bold">Position:</div>
+                            <div class="col-md-8">{{ certificate.position }}</div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-4 fw-bold">Duration:</div>
+                            <div class="col-md-8">{{ certificate.duration }}</div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-4 fw-bold">Start Date:</div>
+                            <div class="col-md-8">{{ certificate.start_date.strftime('%d %B, %Y') }}</div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-4 fw-bold">End Date:</div>
+                            <div class="col-md-8">{{ certificate.end_date.strftime('%d %B, %Y') }}</div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-4 fw-bold">Issue Date:</div>
+                            <div class="col-md-8">{{ certificate.issue_date.strftime('%d %B, %Y') }}</div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-4 fw-bold">Issuer:</div>
+                            <div class="col-md-8">{{ certificate.issuer.username }}</div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-5">
+                        <a href="{{ url_for('view_certificate', certificate_id=certificate.certificate_id) }}" class="btn btn-primary me-2">View Certificate</a>
+                        <a href="{{ url_for('download_certificate', certificate_id=certificate.certificate_id) }}" class="btn btn-outline-primary">Download Certificate</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="alert alert-info" role="alert">
+                <i class="bi bi-info-circle-fill me-2"></i>
+                This verification is valid as of <strong>{{ now().strftime('%d %B, %Y at %H:%M:%S UTC') }}</strong>. 
+                For any inquiries regarding this certificate, please contact us at 
+                <a href="mailto:certifications@itservices.com">certifications@itservices.com</a>.
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

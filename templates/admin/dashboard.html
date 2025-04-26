@@ -1,0 +1,264 @@
+{% extends "layout.html" %}
+
+{% block title %}Admin Dashboard - IT Services Company{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3 col-lg-2 d-md-block bg-dark admin-sidebar collapse">
+            <div class="position-sticky pt-3">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ url_for('admin') }}">
+                            <i class="bi bi-speedometer2 me-2"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('admin_applications') }}">
+                            <i class="bi bi-file-earmark-text me-2"></i> Applications
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('admin_certificates') }}">
+                            <i class="bi bi-award me-2"></i> Certificates
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('admin_internships') }}">
+                            <i class="bi bi-briefcase me-2"></i> Internships
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('admin_services') }}">
+                            <i class="bi bi-gear me-2"></i> Services
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('admin_messages') }}">
+                            <i class="bi bi-envelope me-2"></i> Messages
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('admin_testimonials') }}">
+                            <i class="bi bi-chat-quote me-2"></i> Testimonials
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('admin_signature') }}">
+                            <i class="bi bi-pen me-2"></i> Signature
+                        </a>
+                    </li>
+                </ul>
+                
+                <hr>
+                
+                <ul class="nav flex-column mb-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('index') }}">
+                            <i class="bi bi-house-door me-2"></i> Back to Website
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('logout') }}">
+                            <i class="bi bi-box-arrow-right me-2"></i> Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4 admin-content">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Dashboard</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group me-2">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">
+                            <i class="bi bi-calendar3"></i> {{ now().strftime('%d %B, %Y') }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Dashboard Cards -->
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="card-title text-muted mb-0">Pending Applications</h6>
+                                    <h2 class="mt-3 mb-0">{{ applications_count }}</h2>
+                                </div>
+                                <div class="dashboard-card-icon text-primary">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <a href="{{ url_for('admin_applications') }}" class="btn btn-sm btn-primary w-100">View All</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="card-title text-muted mb-0">Certificates Issued</h6>
+                                    <h2 class="mt-3 mb-0">{{ certificates_count }}</h2>
+                                </div>
+                                <div class="dashboard-card-icon text-success">
+                                    <i class="bi bi-award"></i>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <a href="{{ url_for('admin_certificates') }}" class="btn btn-sm btn-success w-100">View All</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="card-title text-muted mb-0">Users</h6>
+                                    <h2 class="mt-3 mb-0">{{ users_count }}</h2>
+                                </div>
+                                <div class="dashboard-card-icon text-info">
+                                    <i class="bi bi-people"></i>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <a href="#" class="btn btn-sm btn-info w-100">View All</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="card-title text-muted mb-0">New Messages</h6>
+                                    <h2 class="mt-3 mb-0">{{ messages_count }}</h2>
+                                </div>
+                                <div class="dashboard-card-icon text-warning">
+                                    <i class="bi bi-envelope"></i>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <a href="{{ url_for('admin_messages') }}" class="btn btn-sm btn-warning w-100">View All</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recent Activity -->
+            <div class="row mt-4">
+                <div class="col-md-6 mb-4">
+                    <div class="card dashboard-card h-100">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Recent Applications</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                {% for application in applications[:5] if applications %}
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="mb-0">{{ application.applicant_name }}</h6>
+                                            <small class="text-muted">{{ application.internship.title }}</small>
+                                        </div>
+                                        <div>
+                                            <span class="badge rounded-pill status-{{ application.status }}">{{ application.status }}</span>
+                                            <a href="{{ url_for('view_application', application_id=application.id) }}" class="btn btn-sm btn-outline-primary ms-2">View</a>
+                                        </div>
+                                    </li>
+                                {% else %}
+                                    <li class="list-group-item">No recent applications.</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <a href="{{ url_for('admin_applications') }}" class="btn btn-sm btn-outline-secondary">View All Applications</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                    <div class="card dashboard-card h-100">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Recent Certificates</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                {% for certificate in certificates[:5] if certificates %}
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="mb-0">{{ certificate.recipient_name }}</h6>
+                                            <small class="text-muted">{{ certificate.position }} - {{ certificate.certificate_type }}</small>
+                                        </div>
+                                        <div>
+                                            <a href="{{ url_for('view_certificate', certificate_id=certificate.certificate_id) }}" class="btn btn-sm btn-outline-primary">View</a>
+                                        </div>
+                                    </li>
+                                {% else %}
+                                    <li class="list-group-item">No recent certificates.</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <a href="{{ url_for('admin_certificates') }}" class="btn btn-sm btn-outline-secondary">View All Certificates</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quick Actions -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="card dashboard-card">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Quick Actions</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3 mb-3 mb-md-0">
+                                    <a href="{{ url_for('admin_internships') }}" class="btn btn-outline-primary w-100 h-100 d-flex flex-column align-items-center justify-content-center p-4">
+                                        <i class="bi bi-plus-circle fs-1 mb-2"></i>
+                                        <span>Add Internship</span>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 mb-3 mb-md-0">
+                                    <a href="{{ url_for('admin_services') }}" class="btn btn-outline-success w-100 h-100 d-flex flex-column align-items-center justify-content-center p-4">
+                                        <i class="bi bi-plus-circle fs-1 mb-2"></i>
+                                        <span>Add Service</span>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 mb-3 mb-md-0">
+                                    <a href="{{ url_for('admin_certificates') }}" class="btn btn-outline-info w-100 h-100 d-flex flex-column align-items-center justify-content-center p-4">
+                                        <i class="bi bi-award fs-1 mb-2"></i>
+                                        <span>Generate Certificate</span>
+                                    </a>
+                                </div>
+                                <div class="col-md-3">
+                                    <a href="{{ url_for('admin_testimonials') }}" class="btn btn-outline-warning w-100 h-100 d-flex flex-column align-items-center justify-content-center p-4">
+                                        <i class="bi bi-plus-circle fs-1 mb-2"></i>
+                                        <span>Add Testimonial</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,236 @@
+{% extends "layout.html" %}
+
+{% block title %}Apply for {{ internship.title }} - IT Services Company{% endblock %}
+
+{% block content %}
+<!-- Application Form Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <nav aria-label="breadcrumb" class="mb-4">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url_for('internships') }}">Internships</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url_for('internship_detail', internship_id=internship.id) }}">{{ internship.title }}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Apply</li>
+                    </ol>
+                </nav>
+                
+                <div class="card shadow-sm form-container">
+                    <div class="card-body p-5">
+                        <h1 class="text-center mb-4">Apply for {{ internship.title }}</h1>
+                        <p class="text-center mb-4">Please fill out the form below to apply for this internship position.</p>
+                        
+                        <form method="POST" action="{{ url_for('apply', internship_id=internship.id) }}" class="needs-validation" enctype="multipart/form-data" novalidate>
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                            
+                            <div class="mb-4">
+                                <h4>Personal Information</h4>
+                                <hr>
+                            </div>
+                            
+                            <div class="row g-3 mb-4">
+                                <div class="col-md-6">
+                                    <label for="name" class="form-label">Full Name <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="name" name="name" value="{{ form.name.data or '' }}" required>
+                                    <div class="invalid-feedback">
+                                        Please provide your full name.
+                                    </div>
+                                    {% if form.name.errors %}
+                                        <div class="text-danger">
+                                            {% for error in form.name.errors %}
+                                                {{ error }}
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">Email Address <span class="text-danger">*</span></label>
+                                    <input type="email" class="form-control" id="email" name="email" value="{{ form.email.data or '' }}" required>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid email address.
+                                    </div>
+                                    {% if form.email.errors %}
+                                        <div class="text-danger">
+                                            {% for error in form.email.errors %}
+                                                {{ error }}
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            
+                            <div class="row g-3 mb-4">
+                                <div class="col-md-6">
+                                    <label for="phone" class="form-label">Phone Number <span class="text-danger">*</span></label>
+                                    <input type="tel" class="form-control" id="phone" name="phone" value="{{ form.phone.data or '' }}" required>
+                                    <div class="invalid-feedback">
+                                        Please provide your phone number.
+                                    </div>
+                                    {% if form.phone.errors %}
+                                        <div class="text-danger">
+                                            {% for error in form.phone.errors %}
+                                                {{ error }}
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <label for="graduation_year" class="form-label">Graduation Year</label>
+                                    <input type="number" class="form-control" id="graduation_year" name="graduation_year" value="{{ form.graduation_year.data or '' }}" min="2000" max="2100">
+                                    <div class="invalid-feedback">
+                                        Please provide a valid graduation year.
+                                    </div>
+                                    {% if form.graduation_year.errors %}
+                                        <div class="text-danger">
+                                            {% for error in form.graduation_year.errors %}
+                                                {{ error }}
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="college" class="form-label">College/University</label>
+                                <input type="text" class="form-control" id="college" name="college" value="{{ form.college.data or '' }}">
+                                {% if form.college.errors %}
+                                    <div class="text-danger">
+                                        {% for error in form.college.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h4>Resume</h4>
+                                <hr>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="resume" class="form-label">Upload Resume (PDF, DOC, DOCX) <span class="text-danger">*</span></label>
+                                <input type="file" class="form-control" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+                                <div class="invalid-feedback">
+                                    Please upload your resume.
+                                </div>
+                                <div class="form-text">
+                                    Max file size: 5MB. Accepted formats: PDF, DOC, DOCX.
+                                </div>
+                                {% if form.resume.errors %}
+                                    <div class="text-danger">
+                                        {% for error in form.resume.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h4>Additional Information</h4>
+                                <hr>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="cover_letter" class="form-label">Cover Letter</label>
+                                <textarea class="form-control" id="cover_letter" name="cover_letter" rows="5">{{ form.cover_letter.data or '' }}</textarea>
+                                <div class="form-text">
+                                    Tell us why you're interested in this internship and what makes you a good fit.
+                                </div>
+                                {% if form.cover_letter.errors %}
+                                    <div class="text-danger">
+                                        {% for error in form.cover_letter.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="mb-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="terms" required>
+                                    <label class="form-check-label" for="terms">
+                                        I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>
+                                    </label>
+                                    <div class="invalid-feedback">
+                                        You must agree to the terms and conditions.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary btn-lg">Submit Application</button>
+                                <a href="{{ url_for('internship_detail', internship_id=internship.id) }}" class="btn btn-outline-secondary">Cancel</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="card mt-4 shadow-sm">
+                    <div class="card-body p-4">
+                        <h4 class="mb-3">Application Process</h4>
+                        <div class="row">
+                            <div class="col-md-3 mb-3 mb-md-0 text-center">
+                                <div class="bg-primary rounded-circle mx-auto d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                                    <h3 class="text-white mb-0">1</h3>
+                                </div>
+                                <h5>Submit Application</h5>
+                                <p>Complete and submit this application form</p>
+                            </div>
+                            <div class="col-md-3 mb-3 mb-md-0 text-center">
+                                <div class="bg-primary rounded-circle mx-auto d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                                    <h3 class="text-white mb-0">2</h3>
+                                </div>
+                                <h5>Application Review</h5>
+                                <p>Our team will review your application</p>
+                            </div>
+                            <div class="col-md-3 mb-3 mb-md-0 text-center">
+                                <div class="bg-primary rounded-circle mx-auto d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                                    <h3 class="text-white mb-0">3</h3>
+                                </div>
+                                <h5>Interview</h5>
+                                <p>Selected candidates will be invited for an interview</p>
+                            </div>
+                            <div class="col-md-3 text-center">
+                                <div class="bg-primary rounded-circle mx-auto d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                                    <h3 class="text-white mb-0">4</h3>
+                                </div>
+                                <h5>Final Selection</h5>
+                                <p>Successful candidates will receive an offer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Example starter JavaScript for form validation
+    (function () {
+        'use strict'
+
+        // Fetch all forms with class needs-validation
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+</script>
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block title %}Verify Certificate{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-body p-5">
+                    <h1 class="text-center mb-4">Certificate Verification</h1>
+                    <p class="text-center mb-4">Enter the certificate ID to verify its authenticity. You can find the certificate ID on the certificate itself or by scanning the QR code.</p>
+                    
+                    <form method="POST" action="{{ url_for('verify') }}" class="verification-form mx-auto">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                        <div class="mb-4">
+                            <label for="certificate_id" class="form-label">Certificate ID</label>
+                            <input type="text" class="form-control form-control-lg" id="certificate_id" name="certificate_id" placeholder="e.g., CERT-A1B2C3D4E5" required>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">Verify Certificate</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="card mt-4 shadow-sm">
+                <div class="card-body p-4">
+                    <h3 class="mb-3">How to Verify a Certificate</h3>
+                    <div class="row">
+                        <div class="col-md-6 mb-3 mb-md-0">
+                            <div class="d-flex align-items-start mb-3">
+                                <div class="bg-primary rounded-circle p-2 text-white me-3" style="width: 40px; height: 40px; text-align: center;">1</div>
+                                <div>
+                                    <h5>Find the Certificate ID</h5>
+                                    <p>Locate the Certificate ID at the bottom of the certificate.</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-start">
+                                <div class="bg-primary rounded-circle p-2 text-white me-3" style="width: 40px; height: 40px; text-align: center;">2</div>
+                                <div>
+                                    <h5>Enter the ID Above</h5>
+                                    <p>Type the Certificate ID in the form above and click "Verify Certificate".</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start mb-3">
+                                <div class="bg-primary rounded-circle p-2 text-white me-3" style="width: 40px; height: 40px; text-align: center;">3</div>
+                                <div>
+                                    <h5>Alternative: Scan QR Code</h5>
+                                    <p>Scan the QR code on the certificate to be redirected to the verification page.</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-start">
+                                <div class="bg-primary rounded-circle p-2 text-white me-3" style="width: 40px; height: 40px; text-align: center;">4</div>
+                                <div>
+                                    <h5>View Certificate Details</h5>
+                                    <p>If the certificate is valid, you'll see all the details of the certificate.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
