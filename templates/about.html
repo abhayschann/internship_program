@@ -15,18 +15,18 @@
     </div>
 </section>
 
-<!-- Company Overview Section -->
+<!-- IT Services Overview Section -->
 <section class="py-5">
     <div class="container">
         <div class="row">
             <div class="col-md-6 mb-4 mb-md-0">
-                <h2 class="mb-4">Our Story</h2>
-                <p>Founded in 2010, IT Services Company has grown from a small team of passionate tech enthusiasts to a leading IT services provider with a mission to bridge the gap between academic knowledge and industry requirements.</p>
-                <p>Over the years, we have helped numerous businesses transform their digital presence and provided valuable internship experiences to students from diverse academic backgrounds.</p>
-                <p>What sets us apart is our commitment to not only deliver exceptional IT services but also to nurture the next generation of tech professionals through our comprehensive internship programs.</p>
+                <h2 class="mb-4">Our IT Services</h2>
+                <p>We offer comprehensive IT solutions designed to meet the evolving needs of businesses across various industries. Our expertise spans web development, mobile applications, cloud computing, IT infrastructure, cybersecurity, and more.</p>
+                <p>With a focus on innovation and quality, we deliver solutions that drive efficiency, enhance productivity, and create competitive advantages for our clients. Our team stays updated with the latest technologies to ensure we provide cutting-edge services.</p>
+                <p>Whether you need a complete digital transformation or specialized IT support, our experienced professionals can help you achieve your goals with tailored solutions.</p>
             </div>
             <div class="col-md-6">
-                <img src="{{ url_for('static', filename='img/company-history.svg') }}" alt="Company History" class="img-fluid rounded">
+                <img src="{{ url_for('static', filename='img/company-history.svg') }}" alt="IT Services" class="img-fluid rounded">
             </div>
         </div>
     </div>
@@ -54,53 +54,92 @@
     </div>
 </section>
 
-<!-- Our Team Section -->
+<!-- Educational Programs Section -->
 <section class="py-5">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="mb-3">Meet Our Team</h2>
-            <p class="lead">The talented professionals behind our success</p>
+            <h2 class="mb-3">Educational Initiatives</h2>
+            <p class="lead">Bridging the gap between academic learning and industry requirements</p>
         </div>
         <div class="row">
             <div class="col-md-4 mb-4">
-                <div class="team-member">
-                    <img src="{{ url_for('static', filename='img/team-1.svg') }}" alt="Team Member 1">
-                    <h4>John Doe</h4>
-                    <p class="text-secondary">CEO & Founder</p>
-                    <p>With over 20 years of experience in the IT industry, John leads our company with a vision for innovation and excellence.</p>
-                    <div class="social-icons mt-3">
-                        <a href="#" class="me-2"><i class="bi bi-linkedin"></i></a>
-                        <a href="#" class="me-2"><i class="bi bi-twitter"></i></a>
-                        <a href="#"><i class="bi bi-envelope-fill"></i></a>
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <div class="service-icon">
+                            <i class="bi bi-laptop text-primary"></i>
+                        </div>
+                        <h4>Technical Workshops</h4>
+                        <p>Regular workshops covering the latest technologies and industry practices, open to students and professionals looking to expand their skills.</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 mb-4">
-                <div class="team-member">
-                    <img src="{{ url_for('static', filename='img/team-2.svg') }}" alt="Team Member 2">
-                    <h4>Jane Smith</h4>
-                    <p class="text-secondary">CTO</p>
-                    <p>Jane oversees our technical operations and ensures that we stay at the forefront of technological advancements.</p>
-                    <div class="social-icons mt-3">
-                        <a href="#" class="me-2"><i class="bi bi-linkedin"></i></a>
-                        <a href="#" class="me-2"><i class="bi bi-twitter"></i></a>
-                        <a href="#"><i class="bi bi-envelope-fill"></i></a>
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <div class="service-icon">
+                            <i class="bi bi-people text-primary"></i>
+                        </div>
+                        <h4>Mentorship Programs</h4>
+                        <p>One-on-one guidance from experienced professionals to help students navigate their career path in the technology sector.</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 mb-4">
-                <div class="team-member">
-                    <img src="{{ url_for('static', filename='img/team-3.svg') }}" alt="Team Member 3">
-                    <h4>Michael Johnson</h4>
-                    <p class="text-secondary">Internship Program Director</p>
-                    <p>Michael manages our internship programs and ensures that every intern gets a valuable learning experience.</p>
-                    <div class="social-icons mt-3">
-                        <a href="#" class="me-2"><i class="bi bi-linkedin"></i></a>
-                        <a href="#" class="me-2"><i class="bi bi-twitter"></i></a>
-                        <a href="#"><i class="bi bi-envelope-fill"></i></a>
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <div class="service-icon">
+                            <i class="bi bi-journal-code text-primary"></i>
+                        </div>
+                        <h4>Project-Based Learning</h4>
+                        <p>Hands-on projects that provide practical experience in solving real-world problems using modern technologies and methodologies.</p>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- Internship Programs Section -->
+<section class="py-5 bg-body-secondary">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="mb-3">Comprehensive Internship Programs</h2>
+            <p class="lead">Developing the next generation of IT professionals</p>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h4 class="card-title"><i class="bi bi-mortarboard-fill text-primary me-2"></i>For Students</h4>
+                        <ul class="mt-3">
+                            <li>Practical, hands-on experience in various IT domains</li>
+                            <li>Mentorship from industry professionals</li>
+                            <li>Exposure to real-world projects and business environments</li>
+                            <li>Technical and soft skills development</li>
+                            <li>Networking opportunities with industry leaders</li>
+                            <li>Verifiable certificates upon successful completion</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h4 class="card-title"><i class="bi bi-building text-primary me-2"></i>For Businesses</h4>
+                        <ul class="mt-3">
+                            <li>Access to a pool of fresh talent and innovative ideas</li>
+                            <li>Collaboration opportunities with educational institutions</li>
+                            <li>Corporate social responsibility through educational support</li>
+                            <li>Potential recruitment pipeline for future hiring needs</li>
+                            <li>Specialized projects handled by dedicated intern teams</li>
+                            <li>Knowledge transfer and technology adoption</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <a href="{{ url_for('internships') }}" class="btn btn-primary">Explore Our Internship Opportunities</a>
         </div>
     </div>
 </section>

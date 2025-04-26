@@ -22,24 +22,6 @@
     </div>
 </section>
 
-<!-- About Section -->
-<section class="py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 mb-4 mb-md-0">
-                <img src="{{ url_for('static', filename='img/about-image.svg') }}" alt="About Us" class="img-fluid rounded">
-            </div>
-            <div class="col-md-6">
-                <h2 class="mb-4">Who We Are</h2>
-                <p class="lead">A leading IT services company dedicated to delivering innovative solutions and nurturing fresh talent through internship programs.</p>
-                <p>Our mission is to bridge the gap between academic knowledge and industry requirements by providing real-world experience to college students and new graduates from all domains.</p>
-                <p>We believe in creating a learning environment where students can apply their theoretical knowledge, develop new skills, and prepare for successful careers in the IT industry.</p>
-                <a href="{{ url_for('about') }}" class="btn btn-primary mt-3">Learn More About Us</a>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- Services Section -->
 <section class="py-5 bg-body-secondary">
     <div class="container">
@@ -152,6 +134,84 @@
                     <p>No testimonials available at the moment.</p>
                 </div>
             {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="mb-3">Who We Are</h2>
+            <p class="lead">A leading IT services company nurturing fresh talent while delivering innovative solutions</p>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-4 mb-md-0">
+                <img src="{{ url_for('static', filename='img/about-image.svg') }}" alt="About Us" class="img-fluid rounded">
+            </div>
+            <div class="col-md-6">
+                <p>Our mission is to bridge the gap between academic knowledge and industry requirements by providing real-world experience to college students and new graduates from all domains.</p>
+                <p>We believe in creating a learning environment where students can apply their theoretical knowledge, develop new skills, and prepare for successful careers in the IT industry.</p>
+                <p>Since our founding, we've helped hundreds of students gain valuable industry experience while delivering exceptional IT services to our clients.</p>
+                <div class="mt-4">
+                    <a href="{{ url_for('about') }}" class="btn btn-primary">Learn More About Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="py-5 bg-body-tertiary">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="mb-3">Why Choose Us</h2>
+            <p class="lead">What sets us apart from the competition</p>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-6 mb-4 mb-md-0">
+                <img src="{{ url_for('static', filename='img/why-choose-us.svg') }}" alt="Why Choose Us" class="img-fluid" style="max-height: 300px;">
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="p-3 bg-white rounded shadow-sm h-100">
+                            <div class="service-icon">
+                                <i class="bi bi-stars text-primary"></i>
+                            </div>
+                            <h4>Expertise</h4>
+                            <p>Our team consists of industry experts with years of experience</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="p-3 bg-white rounded shadow-sm h-100">
+                            <div class="service-icon">
+                                <i class="bi bi-lightbulb text-primary"></i>
+                            </div>
+                            <h4>Innovation</h4>
+                            <p>We stay at the forefront of technological advancements</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="p-3 bg-white rounded shadow-sm h-100">
+                            <div class="service-icon">
+                                <i class="bi bi-award text-primary"></i>
+                            </div>
+                            <h4>Quality</h4>
+                            <p>We deliver high-quality services that exceed expectations</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="p-3 bg-white rounded shadow-sm h-100">
+                            <div class="service-icon">
+                                <i class="bi bi-headset text-primary"></i>
+                            </div>
+                            <h4>Support</h4>
+                            <p>We provide exceptional support throughout your journey</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
